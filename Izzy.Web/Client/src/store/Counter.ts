@@ -1,3 +1,5 @@
+import {Action} from 'redux';
+
 const incrementCountType = 'INCREMENT_COUNT';
 const decrementCountType = 'DECREMENT_COUNT';
 const initialState = { count: 0 };
@@ -7,7 +9,7 @@ export const actionCreators = {
   decrement: () => ({ type: decrementCountType })
 };
 
-export const reducer = (state, action) => {
+export const reducer = (state: any, action: Action) => {
   state = state || initialState;
 
   if (action.type === incrementCountType) {

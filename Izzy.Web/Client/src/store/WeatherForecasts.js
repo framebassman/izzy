@@ -1,3 +1,5 @@
+import {Action} from 'redux';
+
 const requestWeatherForecastsType = 'REQUEST_WEATHER_FORECASTS';
 const receiveWeatherForecastsType = 'RECEIVE_WEATHER_FORECASTS';
 const initialState = { forecasts: [], isLoading: false };

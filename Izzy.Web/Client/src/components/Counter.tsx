@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Counter';
 
-const Counter = props => (
+const Counter = (props: any) => (
   <div>
     <h1>Counter</h1>
 
@@ -16,6 +16,6 @@ const Counter = props => (
 );
 
 export default connect(
-  state => state.counter,
+  (state: any) => state.counter,
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(Counter);
