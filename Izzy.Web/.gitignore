@@ -171,7 +171,7 @@ BundleArtifacts/
 !*.[Cc]ache/
 
 # Others
-ClientBin/
+Client/
 ~$*
 *~
 *.dbmdl
@@ -179,8 +179,6 @@ ClientBin/
 *.pfx
 *.publishsettings
 orleans.codegen.cs
-
-/node_modules
 
 # RIA/Silverlight projects
 Generated_Code/
