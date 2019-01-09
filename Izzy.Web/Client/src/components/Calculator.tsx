@@ -17,7 +17,7 @@ class Calculator extends Component<any, any> {
     return (
       <div className="calculator">
         <form>
-          <h1>Калькулятор</h1>
+          <h1>Замиокулькас</h1>
           <Button onClick={increment}>Добавить</Button>
           <Persons quantity={quantity}/>
         </form>
