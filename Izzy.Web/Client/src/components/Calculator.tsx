@@ -29,7 +29,7 @@ class Calculator extends Component<any, any> {
 
   randomPlaceholder() {
     const min = 0;
-    const max = placeholders.length;
+    const max = placeholders.length - 1;
     const index = Math.floor(Math.random() * (max - min + 1)) + min;
     return placeholders[index];
   }
