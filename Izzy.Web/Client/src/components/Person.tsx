@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from '@material-ui/core/Input';
+import './Person.css';
 
 const placeholders = [
   "Никифор", "Руслан", "Артём", "Натан", "Варфоломей",
@@ -19,9 +20,9 @@ export class Person extends Component<any, any> {
     const placeholder = this.randomPlaceholder();
     const key = `${serial}_${placeholder}`;
     return (
-      <div key={key}>
-        <Input placeholder={placeholder}/>
-        <Input placeholder="рублей"/>
+      <div className="person" key={key}>
+        <Input className="person__input" placeholder={placeholder}/>
+        <Input className="person__input" placeholder="рублей"/>
       </div>
     )
   }
