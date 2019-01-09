@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Calculator';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
 import { Persons } from './Persons';
 
 const placeholders = [

@@ -3,7 +3,7 @@ import { Person } from './Person';
 
 export class Persons extends Component<any, any> {
   render() {
-    const quantity = this.props.quantity;
+    const { quantity } = this.props;
     let inputs = [];
     for (let i = 0; i < quantity; i++) {
       inputs.push(
