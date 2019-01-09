@@ -6,11 +6,6 @@ import Button from '@material-ui/core/Button';
 import { Persons } from './Persons';
 import './Calculator.css';
 
-const placeholders = [
-  "Никифор", "Руслан", "Артём", "Натан", "Варфоломей",
-  "Евсей", "Мечислав", "Бронислав", "Владимир", "Федор"
-]
-
 class Calculator extends Component<any, any> {
   render() {
     const {increment, quantity} = this.props;
