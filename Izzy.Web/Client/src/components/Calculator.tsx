@@ -13,7 +13,7 @@ class Calculator extends Component<any, any> {
       <div className="calculator">
         <form>
           <h1>Замиокулькас</h1>
-          <Button id="add_button" onClick={increment}>Добавить</Button>
+          <Button id="add" onClick={increment}>Добавить</Button>
           <Persons quantity={quantity}/>
         </form>
         <Button color="primary">Рассчитать</Button>

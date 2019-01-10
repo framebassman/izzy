@@ -19,12 +19,12 @@ describe('<App />', () => {
     );
   });
 
-  it ('Add person after click on Add button', done => {
+  it ('Add 1 person after click on Add button', done => {
     // Arrange
     const personsBefore = app.find('.person').length;
 
     // Act
-    const addButton = app.find('#add_button').hostNodes();
+    const addButton = app.find('#add').hostNodes();
     addButton.simulate('click');
 
     // Assert
