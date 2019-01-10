@@ -1,0 +1,50 @@
+/* Options:
+Date: 2018-07-29 05:59:44
+Version: 5.11
+Tip: To override a DTO option, remove "//" prefix before updating
+BaseUrl: http://localhost:5000
+
+//GlobalNamespace: 
+//MakePropertiesOptional: True
+//AddServiceStackTypes: True
+//AddResponseStatus: False
+//AddImplicitVersion: 
+//AddDescriptionAsComments: True
+//IncludeTypes: 
+//ExcludeTypes: 
+//DefaultImports: 
+*/
+
+
+export interface IReturn<T>
+{
+    createResponse(): T;
+}
+
+export interface IReturnVoid
+{
+    createResponse(): void;
+}
+
+export class HelloResponse
+{
+    public result: string;
+
+    constructor() {
+        this.result = '';
+    }
+}
+
+// @Route("/hello")
+// @Route("/hello/{Name}")
+export class Hello implements IReturn<HelloResponse>
+{
+    constructor() {
+        this.name = '';
+    }
+
+    public name: string;
+    public createResponse() { return new HelloResponse(); }
+    public getTypeName() { return 'Hello'; }
+}
+
