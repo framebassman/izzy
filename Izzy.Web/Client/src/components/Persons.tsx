@@ -7,7 +7,7 @@ export class Persons extends Component<any, any> {
     let inputs = [];
     for (let i = 0; i < quantity; i++) {
       inputs.push(
-        <Person serial={i}/>
+        <Person key={i} serial={i}/>
       );
     }
     return inputs;
