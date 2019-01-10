@@ -14,8 +14,8 @@ export default function configureStore (initialState: any) {
   // In development, use the browser's Redux dev tools extension if installed
   const enhancers = [];
   const isDevelopment = process.env.NODE_ENV === 'development';
-  if (isDevelopment && typeof window !== 'undefined' && (window as any).devToolsExtension) {
-    enhancers.push((window as any).devToolsExtension());
+  if (isDevelopment && typeof window !== 'undefined' && (window as any).__REDUX_DEVTOOLS_EXTENSION__) {
+    enhancers.push((window as any).__REDUX_DEVTOOLS_EXTENSION__());
   }
 
   const rootReducer = combineReducers({
