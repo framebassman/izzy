@@ -11,12 +11,12 @@ class Calculator extends Component<any, any> {
     const {increment, quantity} = this.props;
     return (
       <div className="calculator">
+        <h1>Замиокулькас</h1>
         <form>
-          <h1>Замиокулькас</h1>
-          <Button onClick={increment}>Добавить</Button>
+          <Button id="add" onClick={increment}>Добавить</Button>
           <Persons quantity={quantity}/>
+          <Button id="calculate" color="primary">Рассчитать</Button>
         </form>
-        <Button color="primary">Рассчитать</Button>
       </div>
     );
   }

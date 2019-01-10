@@ -37,9 +37,9 @@ export class Person extends Component<any, any> {
   render() {
     const {serial} = this.props;
     const placeholder = this.randomPlaceholder();
-    const key = `${serial}_${placeholder}`;
+    const id = `person_${serial + 1}`
     return (
-      <div className="person" key={key}>
+      <div className="person" id={id} key={serial}>
         <Input className="person__input" placeholder={placeholder}/>
         <Input className="person__input" placeholder="рублей"/>
       </div>
