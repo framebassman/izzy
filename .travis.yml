@@ -35,8 +35,8 @@ matrix:
           script:
             - npm test
 
-        - stage: deploy
-          script: ./Scripts/deploy.sh
+      - stage: deploy
+        script: ./Scripts/deploy.sh
 
 branches:
   only:
