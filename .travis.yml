@@ -26,5 +26,8 @@ matrix:
       script:
         - npm test
 
+branches:
+  only:
+    - /.*/
 notifications:
   email: false
