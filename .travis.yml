@@ -1,0 +1,24 @@
+matrix:
+  include:
+    - language: csharp
+      mono: none
+      before_install:
+        - cd Izzy.Web/
+      install: 
+        - dotnet clean
+        - dotnet restore
+      script:
+        - dotnet build
+
+    - language: node_js
+      node_js:
+        - 10.15.0
+      before_install:
+        - cd Izzy.Web/Client/
+      install:
+        - npm install
+      script:
+        - npm test
+
+notifications:
+  email: false
