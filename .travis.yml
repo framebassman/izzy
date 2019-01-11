@@ -1,0 +1,40 @@
+matrix:
+  include:
+    - language: csharp
+      mono: none
+      before_install:
+        - sudo apt-get install -y dpkg
+        - wget -q https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
+        - sudo dpkg -i packages-microsoft-prod.deb
+        - sudo apt-get install apt-transport-https
+        - sudo apt-get update
+        - sudo apt-get install dotnet-sdk-2.2
+        - cd Izzy.Web/
+      install: 
+        - dotnet clean
+        - dotnet restore
+      script:
+        - dotnet build
+
+    - language: node_js
+      node_js:
+        - 10.15.0
+      before_install:
+        - cd Izzy.Web/Client/
+      install:
+        - npm install
+      script:
+        - npm test
+
+branches:
+  only:
+    - /.*/
+services:
+  - docker
+deploy:
+  provider: script
+  script: bash Scripts/deploy.sh
+  on:
+    branch: master
+notifications:
+  email: false
