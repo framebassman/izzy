@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.2-sdk AS build-env
 
-RUN curl -sL https://deb.nodesource.com/setup_10.15 |  bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
 RUN apt-get install -y nodejs
 
 COPY ./Izzy.Web /app
