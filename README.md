@@ -7,3 +7,10 @@
 Обычно, когда намечается вписон, кто-то один покупает на всех закуску и выпивку. А после вписона все хотят с этим человеком рассчитаться. Этот калькулятор позволит быстро вычислить, кто кому сколько должен.
 
 Рассчитать вообще изи!
+
+
+### CI status
+| Branch        | Travis-CI     |
+| ------------- |:-------------:|
+| master        | ![Master status](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=master "master status") |
+| dev           | ![Dev status](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=dev "dev status")|
