@@ -2,7 +2,6 @@
 
 1. Respect OOP
 
-
 # How to run app
 
 ```
