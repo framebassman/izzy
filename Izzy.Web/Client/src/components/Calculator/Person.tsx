@@ -8,7 +8,7 @@ export class Person extends Component<any, any> {
     return (
       <div className="person">
         <Input className="person__input" placeholder={man.name()}/>
-        <Input className="person__input" placeholder={man.money().toString()}/>
+        <Input className="person__input" placeholder="рублей"/>
       </div>
     )
   }
