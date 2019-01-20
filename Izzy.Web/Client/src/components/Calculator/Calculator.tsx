@@ -9,7 +9,7 @@ import './Calculator.css';
 
 class Calculator extends Component<any, any> {
   render() {
-    const {increment, people} = this.props;
+    const {increment, calculate, people, transfers} = this.props;
     return (
       <div className="calculator">
         <FormControl>
@@ -17,7 +17,8 @@ class Calculator extends Component<any, any> {
           <Button id="add" onClick={increment}>Добавить</Button>
           <Persons people={people}/>
         </FormControl>
-        <Button color="primary">Рассчитать</Button>
+        <Button color="primary" onClick={calculate}>Рассчитать</Button>
+        <div>{transfers}</div>
       </div>
     );
   }
