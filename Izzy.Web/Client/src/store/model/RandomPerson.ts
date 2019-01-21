@@ -1,5 +1,4 @@
 import { Person } from './Person';
-import { Rouble } from './Rouble';
 
 const firstNames = [
   "Стас", "Вася", "Маша", "Катя", "Аня",
@@ -36,9 +35,7 @@ export class RandomPerson extends Person {
   constructor() {
     super(
       randomPlaceholder(),
-      new Rouble(
-        randomNumber(0, 1000)
-      )
+      randomNumber(0, 1000)
     );
   }
 }

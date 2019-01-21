@@ -7,7 +7,7 @@ export class Person extends Component<any, any> {
     const {man} = this.props;
     return (
       <div className="person">
-        <Input className="person__input" placeholder={man.name()}/>
+        <Input className="person__input" placeholder={man.name}/>
         <Input className="person__input" placeholder="рублей"/>
       </div>
     )
