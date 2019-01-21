@@ -2,7 +2,7 @@ import { Rouble } from './Rouble';
 
 export class Person {
   protected _name: string;
-  protected _roubles: Rouble
+  protected _roubles: Rouble;
 
   constructor(name: string, roubles: Rouble) {
     this._name = name;

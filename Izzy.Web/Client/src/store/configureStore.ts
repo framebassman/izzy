@@ -1,10 +1,10 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import * as Calculator from './Calculator';
+import {reducer as calculatorReducer} from './Calculator/reducer';
 
 export default function configureStore (initialState: any) {
   const reducers = {
-    calculator: Calculator.reducer,
+    calculator: calculatorReducer,
   };
 
   const middleware = [
