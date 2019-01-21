@@ -14,7 +14,7 @@ class Calculator extends Component<any, any> {
   };
 
   render() {
-    const {increment, calculate, people, transfers} = this.props;
+    const {increment, people, transfers} = this.props;
     let flag = 'не получил';
     if (transfers.length !== 0) {
       flag = 'получил';

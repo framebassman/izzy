@@ -35,7 +35,7 @@ export class RandomPerson extends Person {
   constructor() {
     super(
       randomPlaceholder(),
-      randomNumber(0, 1000)
+      0
     );
   }
 }
