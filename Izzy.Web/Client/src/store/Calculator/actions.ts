@@ -7,9 +7,9 @@ export const calculateType = 'CALCULATE';
 export const actionCreators = {
     increment: () => ({ type: incrementCountType }),
     decrement: () => ({ type: decrementCountType }),
-    calculate: () => async (dispatch: any) => {
+    calculate: (people: any) => async (dispatch: any) => {
         const url = '/api/calculator';
-        const response = await axios.post(url, { foo: 'bar' });
+        const response = await axios.post(url, people);
         dispatch({
             type: calculateType,
             payload: response

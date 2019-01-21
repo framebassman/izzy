@@ -8,6 +8,11 @@ import { Persons } from './Persons';
 import './Calculator.css';
 
 class Calculator extends Component<any, any> {
+  handleCalculate = () => {
+    const {calculate, people} = this.props;
+    calculate(people);
+  };
+
   render() {
     const {increment, calculate, people, transfers} = this.props;
     let flag = 'не получил';
@@ -21,7 +26,7 @@ class Calculator extends Component<any, any> {
           <Button id="add" onClick={increment}>Добавить</Button>
           <Persons people={people}/>
         </FormControl>
-        <Button color="primary" onClick={calculate}>Рассчитать</Button>
+        <Button color="primary" onClick={this.handleCalculate}>Рассчитать</Button>
         <div>{flag}</div>
       </div>
     );
