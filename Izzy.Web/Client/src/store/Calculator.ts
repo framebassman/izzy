@@ -19,13 +19,13 @@ const initialState: CalculatorState = { quantity: 1, people: initPeople(), trans
 export const actionCreators = {
   increment: () => ({ type: incrementCountType }),
   decrement: () => ({ type: decrementCountType }),
-  calculate: function () {
-    const response = axios.post('/api/calculator')
-      .then(e => console.log(e.data));
-    return {
+  calculate: () => async (dispatch: any) => {
+    const url = '/api/calculator';
+    const response = await axios.post(url, { foo: 'bar' });
+    dispatch({
       type: calculateType,
       payload: response
-    }
+    })
   }
 };
 

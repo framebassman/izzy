@@ -10,6 +10,10 @@ import './Calculator.css';
 class Calculator extends Component<any, any> {
   render() {
     const {increment, calculate, people, transfers} = this.props;
+    let flag = 'не получил';
+    if (transfers.length !== 0) {
+      flag = 'получил';
+    }
     return (
       <div className="calculator">
         <FormControl>
@@ -18,7 +22,7 @@ class Calculator extends Component<any, any> {
           <Persons people={people}/>
         </FormControl>
         <Button color="primary" onClick={calculate}>Рассчитать</Button>
-        <div>{transfers}</div>
+        <div>{flag}</div>
       </div>
     );
   }
