@@ -15,11 +15,8 @@ export const reducer = (state: any, action: any) => {
     state = state || initialState;
 
     if (action.type === incrementCountType) {
-        const current = state.people;
-        let next: Person[] = [];
-        next = next.concat(current);
-        next.push(new RandomPerson())
-        return { ...state, people: next };
+        const current = state.people.concat([new RandomPerson()]);
+        return { ...state, people: current };
     }
 
     if (action.type === decrementCountType) {
