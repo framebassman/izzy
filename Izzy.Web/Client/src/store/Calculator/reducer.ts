@@ -24,7 +24,7 @@ export const reducer = (state: any, action: any) => {
         let next: Person[] = [];
         next = next.concat(current);
         next.pop()
-        return { ...state, people: next };
+        return { ...state, people: current };
     }
 
     if (action.type === calculateType) {
