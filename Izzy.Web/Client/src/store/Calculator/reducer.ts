@@ -9,21 +9,25 @@ function initPeople(): Person[] {
     return arr;
 }
 
-const initialState: CalculatorState = { quantity: 1, people: initPeople(), transfers: []};
+const initialState: CalculatorState = { people: initPeople(), transfers: []};
 
 export const reducer = (state: any, action: any) => {
     state = state || initialState;
 
     if (action.type === incrementCountType) {
         const current = state.people;
-        current.push(new RandomPerson());
-        return { ...state, quantity: state.quantity + 1, people: current };
+        let next: Person[] = [];
+        next = next.concat(current);
+        next.push(new RandomPerson())
+        return { ...state, people: next };
     }
 
     if (action.type === decrementCountType) {
         const current = state.people;
-        current.pop();
-        return { ...state, quantity: state.quantity - 1, people: current };
+        let next: Person[] = [];
+        next = next.concat(current);
+        next.pop()
+        return { ...state, people: next };
     }
 
     if (action.type === calculateType) {
