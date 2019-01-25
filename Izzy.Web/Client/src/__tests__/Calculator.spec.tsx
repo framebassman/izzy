@@ -49,7 +49,7 @@ describe('<Calculator />', () => {
     done();
   });
 
-  it ('Transfers are displayed after clicking on \'Рассчитать\' button', done => {
+  it ('outcomes are displayed after clicking on \'Рассчитать\' button', done => {
     // Act
     component.find('#calc').hostNodes().simulate('click');
 

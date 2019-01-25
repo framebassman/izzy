@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import { Persons } from './Persons';
 
-export class Expenditures extends Component<any, any> {
+export class Incomes extends Component<any, any> {
   render() {
     const {increment, people, calculate} = this.props;
     return (

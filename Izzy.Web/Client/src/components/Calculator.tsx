@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Calculator/actions';
-import { Expenditures } from './Expenditures/Expenditures';
-import { Transfers } from './Transfers/Transfers';
+import { Incomes } from './incomes/Incomes';
+import { Outcomes } from './outcomes/Outcomes';
 import './Calculator.css';
 
 function Display(props: any) {
   const {increment, people, transfers, calculate} = props;
   if (transfers.length === 0) {
-    return <Expenditures increment={increment} people={people} calculate={calculate}/>
+    return <Incomes increment={increment} people={people} calculate={calculate}/>
   } else {
-    return <Transfers transfers={transfers}/>
+    return <Outcomes transfers={transfers}/>
   }
 }
 

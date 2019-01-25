@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Transfers extends Component<any, any> {
+export class Outcomes extends Component<any, any> {
   render() {
     return (
       <div>Hello from tranfers</div>
