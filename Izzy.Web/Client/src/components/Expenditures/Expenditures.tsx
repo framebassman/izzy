@@ -13,7 +13,7 @@ export class Expenditures extends Component<any, any> {
           <Button id="add" onClick={increment}>Добавить</Button>
           <Persons people={people}/>
         </FormControl>
-        <Button color="primary" onClick={calculate}>Рассчитать</Button>
+        <Button id="calc" color="primary" onClick={calculate}>Рассчитать</Button>
       </div>
     )
   }
