@@ -5,7 +5,18 @@ import { actionCreators } from '../store/Calculator/actions';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import { Persons } from './Expenditures/Persons';
+import { Expenditures } from './Expenditures/Expenditures';
+import { Transfers } from './Transfers/Transfers';
 import './Calculator.css';
+
+function Display(props: any) {
+  const {increment, people, transfers, calculate} = props;
+  if (transfers.length === 0) {
+    return <Expenditures increment={increment} people={people} calculate={calculate}/>
+  } else {
+    return <Transfers transfers={transfers}/>
+  }
+}
 
 class Calculator extends Component<any, any> {
   handleCalculate = () => {
@@ -17,12 +28,12 @@ class Calculator extends Component<any, any> {
     const {increment, people, transfers} = this.props;
     return (
       <div className="calculator">
-        <FormControl>
-          <h1>Замиокулькас</h1>
-          <Button id="add" onClick={increment}>Добавить</Button>
-          <Persons people={people}/>
-        </FormControl>
-        <Button color="primary" onClick={this.handleCalculate}>Рассчитать</Button>
+        <Display
+          increment={increment}
+          people={people}
+          transfers={transfers}
+          calculate={this.handleCalculate}
+        />
       </div>
     );
   }
