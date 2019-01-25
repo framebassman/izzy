@@ -12,6 +12,7 @@
     "@types/react-redux": "^6.0.12",
     "axios": "^0.18.0",
     "enzyme": "^3.8.0",
+    "petrovich": "^0.2.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
