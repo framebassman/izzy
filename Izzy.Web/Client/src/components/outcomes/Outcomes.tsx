@@ -15,7 +15,7 @@ export class Outcomes extends Component<any, any> {
       <FormControl>
         <h1>Замиокулькас</h1>
         <Button id="more" color="primary">Ещё</Button>
-        <Table className='outcomes__transfers'>
+        <Table id="transfers">
           <TableHead>
             <TableRow>
               <TableCell>Кто</TableCell>

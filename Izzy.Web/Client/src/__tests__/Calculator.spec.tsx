@@ -56,8 +56,8 @@ describe('<Calculator />', () => {
     // Assert
     moxios.wait(() => {
       component.update();
-      expect(component.find('.calculator').text())
-          .toEqual('Hello from tranfers');
+      expect(component.find('#transfers').exists())
+          .toEqual(true);
       done();
     }, 100);
   });
