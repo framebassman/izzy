@@ -1,6 +1,6 @@
 export class Person {
-  protected name: string;
-  protected roubles: number;
+  public name: string;
+  public roubles: number;
 
   constructor(name: string, roubles: number) {
     this.name = name;

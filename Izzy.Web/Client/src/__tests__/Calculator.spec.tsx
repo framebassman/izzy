@@ -6,6 +6,7 @@ import moxios from 'moxios';
 import configureStore from '../store/configureStore';
 import Calculator from '../components/Calculator';
 import { calculateUrl } from '../store/Calculator/urls';
+import {RandomTransfer} from "../store/model/RandomTransfer";
 
 const initialState = (window as any).initialReduxState;
 const store = configureStore(initialState);
@@ -23,8 +24,8 @@ describe('<Calculator />', () => {
     moxios.stubRequest(calculateUrl, {
       status: 200,
       response: [
-        {to: 'Bob', from: 'Alice', money: 20},
-        {to: 'Carol', from: 'Alice', money: 30},
+        new RandomTransfer(),
+        new RandomTransfer()
       ]
     });
   });
