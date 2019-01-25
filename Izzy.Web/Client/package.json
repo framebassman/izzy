@@ -38,6 +38,8 @@
   "devDependencies": {
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.12",
-    "enzyme-adapter-react-16": "^1.7.1"
+    "@types/moxios": "^0.4.8",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "moxios": "^0.4.0"
   }
 }
