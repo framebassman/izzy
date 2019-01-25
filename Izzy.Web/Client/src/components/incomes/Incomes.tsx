@@ -12,8 +12,8 @@ export class Incomes extends Component<any, any> {
           <h1>Замиокулькас</h1>
           <Button id="add" onClick={increment}>Добавить</Button>
           <Persons people={people}/>
+          <Button id="calc" color="primary" onClick={calculate}>Рассчитать</Button>
         </FormControl>
-        <Button id="calc" color="primary" onClick={calculate}>Рассчитать</Button>
       </div>
     )
   }
