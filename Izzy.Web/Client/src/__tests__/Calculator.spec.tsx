@@ -43,7 +43,8 @@ describe('<Calculator />', () => {
 
     // Assert
     const personsAfter = component.find('.person').length;
-    expect(personsAfter - personsBefore).toEqual(1);
+    expect(personsAfter - personsBefore)
+        .toEqual(1);
     done();
   });
 
