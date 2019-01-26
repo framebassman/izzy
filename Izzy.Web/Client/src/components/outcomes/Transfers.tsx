@@ -21,7 +21,7 @@ export class Transfers extends Component<any, any> {
         <TableRow key={i++}>
           <TableCell>{tr.from}</TableCell>
           <TableCell>{this.destInPropriateCase(tr.to)}</TableCell>
-          <TableCell>{tr.money}</TableCell>
+          <TableCell>{tr.roubles}</TableCell>
         </TableRow>
       )
     }

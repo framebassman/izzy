@@ -11,14 +11,14 @@ namespace Izzy.Web.Model
         [JsonProperty("from")]
         public String From;
 
-        [JsonProperty("money")]
-        public Int32 Money;
+        [JsonProperty("roubles")]
+        public Int32 Roubles;
 
-        public Transfer(String from, String to, Int32 money)
+        public Transfer(String from, String to, Int32 roubles)
         {
             this.From = from;
             this.To = to;
-            this.Money = money;
+            this.Roubles = roubles;
         }
 
         public override String ToString()
