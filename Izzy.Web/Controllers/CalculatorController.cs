@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Izzy.Web.Model;
@@ -9,21 +8,11 @@ namespace Izzy.Web.Controllers
     public class CalculatorController : Controller
     {
         [HttpPost]
-        public IActionResult Calculate()
+        public IActionResult Calculate([FromBody] IEnumerable<Person> persons)
         {
             return new OkObjectResult(
-                new List<Transfer>{
-                    new Transfer(
-                        "Маша",
-                        "Дима",
-                        1
-                    ),
-                    new Transfer(
-                        "Катя",
-                        "Дима",
-                        2
-                    )
-                }
+                new Receipt(persons)
+                    .Transfers()
             );
         }
     }

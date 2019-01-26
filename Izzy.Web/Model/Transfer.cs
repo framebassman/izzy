@@ -21,6 +21,13 @@ namespace Izzy.Web.Model
             this.Roubles = roubles;
         }
 
+        public Transfer(Person from, Person to, Int32 roubles)
+        {
+            this.From = from.Name;
+            this.To = to.Name;
+            this.Roubles = roubles;
+        }
+
         public override String ToString()
         {
             return "{\"from\":\"Маша\", \"to\":\"Дима\", \"roubles\":1}";
