@@ -9,9 +9,9 @@ namespace Izzy.Web.Model
         public String Name;
 
         [JsonProperty("roubles")]
-        public Int32 Roubles;
+        public Decimal Roubles;
 
-        public Person(String name, Int32 roubles)
+        public Person(String name, Decimal roubles)
         {
             this.Name = name;
             this.Roubles = roubles;

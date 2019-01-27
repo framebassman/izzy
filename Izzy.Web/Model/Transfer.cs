@@ -12,16 +12,16 @@ namespace Izzy.Web.Model
         public String From;
 
         [JsonProperty("roubles")]
-        public Int32 Roubles;
+        public Decimal Roubles;
 
-        public Transfer(String from, String to, Int32 roubles)
+        public Transfer(String from, String to, Decimal roubles)
         {
             this.From = from;
             this.To = to;
             this.Roubles = roubles;
         }
 
-        public Transfer(Person from, Person to, Int32 roubles)
+        public Transfer(Person from, Person to, Decimal roubles)
         {
             this.From = from.Name;
             this.To = to.Name;
