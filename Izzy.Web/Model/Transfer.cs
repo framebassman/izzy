@@ -27,10 +27,5 @@ namespace Izzy.Web.Model
             this.To = to.Name;
             this.Roubles = roubles;
         }
-
-        public override String ToString()
-        {
-            return "{\"from\":\"Маша\", \"to\":\"Дима\", \"roubles\":1}";
-        }
     } 
 }

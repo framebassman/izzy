@@ -18,12 +18,10 @@ namespace Izzy.Web.Model
             var transfers = new List<Transfer>();
             var total = this._persons.Sum(p => p.Roubles);
             var roublesPerOne = total / this._persons.Count();
-            var spender = this._persons
-                .OrderByDescending(p => p.Roubles)
-                .First();
-            var personsExceptSpender = this._persons
-                .OrderByDescending(p => p.Roubles)
-                .Skip(1);
+            var personsTop = this._persons
+                .OrderByDescending(p => p.Roubles);
+            var spender = personsTop.First();
+            var personsExceptSpender = personsTop.Skip(1);
             foreach (var person in personsExceptSpender)
             {
                 transfers.Add(
