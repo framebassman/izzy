@@ -10,6 +10,7 @@ namespace Izzy.Web.Tests
         [Fact]
         public void Test1()
         {
+            // Arrange
             var receipt = new Receipt(
                 new List<Person>{
                     new Person("Alice", 600),
@@ -17,7 +18,19 @@ namespace Izzy.Web.Tests
                     new Person("Carol", 0)
                 }
             );
+
+            // Act
             var transfers = receipt.Transfers();
+
+            // Assert
+            var first = transfers[0];
+            Assert.Equal("Bob", first.From);
+            Assert.Equal("Alice", first.To);
+            Assert.Equal(600 - ((1100m + 600m) / 3), first.Roubles);
+            var second = transfers[1];
+            Assert.Equal("Carol", second.From);
+            Assert.Equal("Bob", second.To);
+            Assert.Equal((1100m + 600m) / 3, second.Roubles);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Izzy.Web.Model
             this._persons = persons;
         }
 
-        public IEnumerable<Transfer> Transfers()
+        public List<Transfer> Transfers()
         {
             var transfers = new List<Transfer>();
             var total = this._persons.Sum(p => p.Roubles);
@@ -25,7 +25,7 @@ namespace Izzy.Web.Model
             foreach (var person in personsExceptSpender)
             {
                 transfers.Add(
-                    new Transfer(
+                    new DifferenceTransfer(
                         person,
                         spender,
                         roublesPerOne - person.Roubles
