@@ -26,11 +26,11 @@ namespace Izzy.Web.Tests
             var first = transfers[0];
             Assert.Equal("Bob", first.From);
             Assert.Equal("Alice", first.To);
-            Assert.Equal(600 - ((1100m + 600m) / 3), first.Roubles);
+            Assert.Equal(33.33m, first.Roubles);
             var second = transfers[1];
             Assert.Equal("Carol", second.From);
             Assert.Equal("Bob", second.To);
-            Assert.Equal((1100m + 600m) / 3, second.Roubles);
+            Assert.Equal(566.67m, second.Roubles);
         }
     }
 }
