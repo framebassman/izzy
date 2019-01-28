@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import './Person.css';
 
 export class Person extends Component<any, any> {
