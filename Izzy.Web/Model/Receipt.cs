@@ -17,7 +17,7 @@ namespace Izzy.Web.Model
         {
             var transfers = new List<Transfer>();
             var total = this._persons.Sum(p => p.Roubles);
-            var roublesPerOne = total / this._persons.Count();
+            var roublesPerOne = Decimal.Round(total / this._persons.Count(), 2);
             var personsTop = this._persons
                 .OrderByDescending(p => p.Roubles);
             var spender = personsTop.First();
