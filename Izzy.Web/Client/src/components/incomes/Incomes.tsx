@@ -18,6 +18,7 @@ export class Incomes extends Component<any, any> {
         <Formik
           initialValues={{ persons: [new RandomPerson()] }}
           onSubmit={values => {
+              console.log(JSON.stringify(values.persons, null, 2));
               calculate(values.persons);
             }
           }
@@ -35,12 +36,8 @@ export class Incomes extends Component<any, any> {
                     </Button>
                     {values.persons.map((person, index) => (
                       <div key={index} className="person">
-                        <Input className="person__input" placeholder={person.name}>
-                          <Field name={`persons.${index}.name`} />
-                        </Input>
-                        <Input className="person__input" placeholder={person.roubles.toString()}>
-                          <Field name={`persons.${index}.roubles`} />
-                        </Input>
+                        <Field name={`persons.${index}.name`} />
+                        <Field name={`persons.${index}.roubles`} />
                       </div>
                     ))}
                     <Button type="submit" id="calc" color="primary" >Рассчитать</Button>
