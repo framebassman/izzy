@@ -13,7 +13,7 @@ export class Incomes extends Component<any, any> {
   render() {
     const {increment, people, calculate} = this.props;
     return (
-      <FormControl>
+      <FormControl id="persons_form">
         <h1>Замиокулькас</h1>
         <Formik
           initialValues={{ persons: [new RandomPerson()] }}

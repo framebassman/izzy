@@ -43,6 +43,7 @@
     "@types/moxios": "^0.4.8",
     "@types/webpack-env": "^1.13.6",
     "enzyme-adapter-react-16": "^1.7.1",
-    "moxios": "^0.4.0"
+    "moxios": "^0.4.0",
+    "react-test-renderer": "^16.7.0"
   }
 }

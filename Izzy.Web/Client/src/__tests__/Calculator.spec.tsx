@@ -51,14 +51,16 @@ describe('<Calculator />', () => {
 
   it ('outcomes are displayed after clicking on \'Рассчитать\' button', done => {
     // Act
-    component.find('#calc').hostNodes().simulate('click');
+    component.find('#persons_form').children().find('form').simulate('submit', {
+      preventDefault: () => {} // no op
+    });
 
     // Assert
     moxios.wait(() => {
       component.update();
-      expect(component.find('#transfers').exists())
+      expect(component.find('#transfers').hostNodes().exists())
           .toEqual(true);
       done();
-    }, 100);
+    }, 1000);
   });
 });
