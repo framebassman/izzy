@@ -14,7 +14,7 @@ export class Outcomes extends Component<any, any> {
     return (
       <FormControl>
         <h1>Замиокулькас</h1>
-        <Button id="more" color="primary">Ещё</Button>
+        {/* <Button id="more" color="primary" onClick={cancel}>Ещё</Button> */}
         <Table id="transfers">
           <TableHead>
             <TableRow>
