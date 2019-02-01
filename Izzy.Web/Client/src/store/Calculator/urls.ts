@@ -1,1 +1,1 @@
-export const calculateUrl = '/api/calculator';
+export const calculateUrl = 'api/calculator';
