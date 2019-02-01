@@ -16,8 +16,8 @@ function Display(props: any) {
 }
 
 class Calculator extends Component<any, any> {
-  handleCalculate = () => {
-    const {calculate, people} = this.props;
+  handleCalculate = (people: any) => {
+    const {calculate} = this.props;
     calculate(people);
   };
 
