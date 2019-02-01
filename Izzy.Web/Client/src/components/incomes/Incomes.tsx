@@ -18,7 +18,6 @@ export class Incomes extends Component<any, any> {
         <Formik
           initialValues={{ persons: [new RandomPerson()] }}
           onSubmit={values => {
-              console.log(JSON.stringify(values.persons, null, 2));
               calculate(values.persons);
             }
           }
