@@ -3,11 +3,12 @@ import { Person } from './Person';
 
 export class Persons extends Component<any, any> {
   render() {
-    const { quantity } = this.props;
+    const { people } = this.props;
     let inputs = [];
-    for (let i = 0; i < quantity; i++) {
+    let i = 0;
+    for (const man of people) {
       inputs.push(
-        <Person key={i} serial={i}/>
+        <Person key={i++} man={man}/>
       );
     }
     return inputs;
