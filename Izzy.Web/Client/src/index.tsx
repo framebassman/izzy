@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 
 import './index.css';
 import App from './App';
+import { YandexMetrica } from './YandexMetrica';
+import { YMInitializer } from 'react-yandex-metrika';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
 
@@ -13,6 +15,7 @@ const store = configureStore(initialState);
 ReactDOM.render(
   <Provider store={store}>
     <App/>
+    <YandexMetrica accounts={[52190806]} />
   </Provider>,
   document.getElementById('root')
 );
