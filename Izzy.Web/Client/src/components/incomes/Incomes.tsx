@@ -67,7 +67,14 @@ export class Incomes extends Component<any, any> {
                         />
                       </div>
                     ))}
-                    <Button type="submit" id="calc" color="primary" >Рассчитать</Button>
+                    <Button 
+                      type="submit"
+                      id="calc"
+                      color="primary"
+                      disabled={ values.persons.length > 1 ? false : true }
+                    >
+                      Рассчитать
+                    </Button>
                   </div>
                 )}
               />
