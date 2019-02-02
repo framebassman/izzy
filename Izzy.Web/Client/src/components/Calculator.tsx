@@ -8,7 +8,8 @@ import './Calculator.css';
 
 function Display(props: any) {
   const {increment, people, transfers, calculate} = props;
-  if (transfers.length === 0) {
+  if ( transfers === undefined
+    || transfers.length === 0 ) {
     return <Incomes increment={increment} people={people} calculate={calculate}/>
   } else {
     return <Outcomes transfers={transfers}/>
