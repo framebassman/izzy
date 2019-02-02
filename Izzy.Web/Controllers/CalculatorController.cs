@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Izzy.Web.Model;
 
 namespace Izzy.Web.Controllers
@@ -7,13 +9,27 @@ namespace Izzy.Web.Controllers
     [Route("api/[controller]")]
     public class CalculatorController : Controller
     {
+        private readonly ILogger _logger;
+
+        public CalculatorController(ILogger<CalculatorController> logger)
+        {
+            this._logger = logger;
+        }
+
         [HttpPost]
         public IActionResult Calculate([FromBody] IEnumerable<Person> persons)
         {
-            return new OkObjectResult(
-                new Receipt(persons)
-                    .Transfers()
-            );
+            if (ModelState.IsValid) {
+                return new OkObjectResult(
+                    new Receipt(persons)
+                        .Transfers()
+                );
+            } else {
+                return new BadRequestObjectResult(
+                    "Name should have string type, Roubles should have number type"
+                );
+            }
+            
         }
     }
 }

@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import { YandexMetrica } from './YandexMetrica';
-import { YMInitializer } from 'react-yandex-metrika';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
 
