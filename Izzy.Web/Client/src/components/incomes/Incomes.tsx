@@ -3,15 +3,13 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
-import { Persons } from './Persons';
-import { Person } from './../../store/model/Person';
 import { Formik, Form, Field, FieldArray, FieldProps } from 'formik';
 import './Person.css';
 import { RandomPerson } from '../../store/model/RandomPerson';
 
 export class Incomes extends Component<any, any> {
   render() {
-    const {increment, people, calculate} = this.props;
+    const {calculate} = this.props;
     return (
       <FormControl id="persons_form">
         <h1>Замиокулькас</h1>
