@@ -19,6 +19,6 @@ export const YandexMetrica = (props: YandexMetricaProps) => {
       />
     )
   } else {
-    return (<div/>);
+    return (<div style={{display: 'none'}} />);
   }
 }
