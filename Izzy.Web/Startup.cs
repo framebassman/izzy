@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Izzy.Web.Middlewares;
 
 namespace Izzy.Web
 {
@@ -40,6 +41,7 @@ namespace Izzy.Web
                 app.UseHsts();
             }
 
+            app.UseMiddleware<HealthCheckMiddleware>();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

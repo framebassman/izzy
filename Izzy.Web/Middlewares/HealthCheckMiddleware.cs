@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 
-namespace FakeSender.Api.Middlewares
+namespace Izzy.Web.Middlewares
 {
     public class HealthCheckMiddleware
     {
