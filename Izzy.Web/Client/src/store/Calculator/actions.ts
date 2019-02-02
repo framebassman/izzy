@@ -11,7 +11,7 @@ async function transfersFromBack(people: Person[]) {
     return await axios.post(calculateUrl, people); 
   }
   catch {
-    return [];
+    return { data: [] };
   }
 }
 
