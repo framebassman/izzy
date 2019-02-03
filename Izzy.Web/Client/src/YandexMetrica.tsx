@@ -14,7 +14,7 @@ export const YandexMetrica = (props: YandexMetricaProps) => {
   if (isProd()) {
     return (
       <YMInitializer 
-        accounts={props.accounts} 
+        accounts={props.accounts}
         options={{
           clickmap: true,
           trackLinks: true,
