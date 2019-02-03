@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Izzy.Web.Model;
+using Newtonsoft.Json;
 
 namespace Izzy.Web.Controllers
 {
@@ -20,16 +21,17 @@ namespace Izzy.Web.Controllers
         public IActionResult Calculate([FromBody] IEnumerable<Person> persons)
         {
             if (ModelState.IsValid) {
+                this._logger.LogInformation("Persons was: {persons}", persons);
                 return new OkObjectResult(
                     new Receipt(persons)
                         .Transfers()
                 );
             } else {
+                this._logger.LogInformation("Invalid request: {persons}", persons);
                 return new BadRequestObjectResult(
                     "Name should have string type, Roubles should have number type"
                 );
             }
-            
         }
     }
 }
