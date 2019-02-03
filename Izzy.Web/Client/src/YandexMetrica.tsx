@@ -14,8 +14,15 @@ export const YandexMetrica = (props: YandexMetricaProps) => {
   if (isProd()) {
     return (
       <YMInitializer 
-        accounts={props.accounts} 
-        options={{webvisor: true}} 
+        accounts={props.accounts}
+        options={{
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true,
+          trackHash: true,
+        }}
+        version="2"
       />
     )
   } else {

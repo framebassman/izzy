@@ -16,5 +16,10 @@ namespace Izzy.Web.Model
             this.Name = name;
             this.Roubles = roubles;
         }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
