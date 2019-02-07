@@ -17,9 +17,8 @@ function conjugateToDativeCase(origin: string): string {
   if (origin === 'я') {
     return 'мне';
   }
-  const person = { gender: 'male', origin };
-  const result = petrovich(person, 'dative').first;
-  return result;
+  const person = { gender: 'male', first: origin };
+  return petrovich(person, 'dative').first;
 }
 
 export class Transfers extends Component<any, any> {
@@ -30,9 +29,9 @@ export class Transfers extends Component<any, any> {
     for (const tr of src) {
       inputs.push(
         <TableRow key={i++}>
-          <TableCell>{tr.from}</TableCell>
-          <TableCell>{destInPropriateCase(tr.to)}</TableCell>
-          <TableCell>{tr.roubles}</TableCell>
+          <TableCell id={`from${i}`}>{tr.from}</TableCell>
+          <TableCell id={`to${i}`}>{destInPropriateCase(tr.to)}</TableCell>
+          <TableCell id={`roubles${i}`}>{tr.roubles}</TableCell>
         </TableRow>
       )
     }
