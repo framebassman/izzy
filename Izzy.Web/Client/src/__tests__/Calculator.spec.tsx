@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { shallow, mount, ReactWrapper } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import moxios from 'moxios';
 
 import configureStore from '../store/configureStore';

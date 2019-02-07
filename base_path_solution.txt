@@ -1,2 +1,0 @@
-DOTNET_RUNNING_IN_CONTAINER=true
-perl -pi -e 's/%IZZY_BASE_PATH%/$IZZY_BASE_PATH/g' Izzy.Web/Client/public/index.html
