@@ -23,8 +23,8 @@ namespace Izzy.Web.Model
 
         public Transfer(Person from, Person to, Decimal roubles)
         {
-            this.From = from.Name;
-            this.To = to.Name;
+            this.From = from.Name();
+            this.To = to.Name();
             this.Roubles = roubles;
         }
     } 

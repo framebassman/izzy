@@ -5,21 +5,24 @@ namespace Izzy.Web.Model
 {
     public class Person
     {
-        [JsonProperty("name")]
-        public String Name;
+        private String _name;
 
-        [JsonProperty("roubles")]
-        public Decimal Roubles;
+        private Decimal _roubles;
 
         public Person(String name, Decimal roubles)
         {
-            this.Name = name;
-            this.Roubles = roubles;
+            this._name = name;
+            this._roubles = roubles;
         }
 
-        public override string ToString()
+        public String Name()
         {
-            return JsonConvert.SerializeObject(this);
+            return this._name;
+        }
+
+        public virtual Decimal Roubles()
+        {
+            return this._roubles;
         }
     }
 }

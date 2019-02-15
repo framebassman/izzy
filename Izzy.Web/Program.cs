@@ -24,7 +24,7 @@ namespace Izzy.Web
                 .UseUrls("http://0.0.0.0:5000")
                 .UseSerilog((h, c) =>
                     c.Enrich.FromLogContext()
-                        .MinimumLevel.Warning()
+                        .MinimumLevel.Information()
                         .MinimumLevel.Override("Izzy.Web", LogEventLevel.Information)
                         .WriteTo.ColoredConsole()
                         .WriteTo.Sentry(s =>

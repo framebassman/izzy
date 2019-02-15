@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_izzy.251147059.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Izzy.Web" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="Client" t="Include">
+          <e p=".gitignore" t="Include" />
+          <e p=".idea" t="Include">
+            <e p="Client.iml" t="Include" />
+            <e p="encodings.xml" t="Include" />
+            <e p="inspectionProfiles" t="Include">
+              <e p="Project_Default.xml" t="Include" />
+            </e>
+            <e p="misc.xml" t="Include" />
+            <e p="modules.xml" t="Include" />
+            <e p="vcs.xml" t="Include" />
+            <e p="workspace.xml" t="Include" />
+          </e>
+          <e p="README.md" t="Include" />
+          <e p="build" t="Include">
+            <e p="asset-manifest.json" t="Include" />
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="manifest.json" t="Include" />
+            <e p="precache-manifest.7f758d096e79f13c9766c0c09fc12fc0.js" t="Include" />
+            <e p="service-worker.js" t="Include" />
+            <e p="static" t="Include">
+              <e p="css" t="Include">
+                <e p="main.ebb4f4e8.chunk.css" t="Include" />
+                <e p="main.ebb4f4e8.chunk.css.map" t="Include" />
+              </e>
+              <e p="js" t="Include">
+                <e p="1.00136703.chunk.js" t="Include" />
+                <e p="1.00136703.chunk.js.map" t="Include" />
+                <e p="main.8303c176.chunk.js" t="Include" />
+                <e p="main.8303c176.chunk.js.map" t="Include" />
+                <e p="runtime~main.229c360f.js" t="Include" />
+                <e p="runtime~main.229c360f.js.map" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="package-lock.json" t="Include" />
+          <e p="package.json" t="Include" />
+          <e p="public" t="Include">
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+            <e p="manifest.json" t="Include" />
+          </e>
+          <e p="src" t="Include">
+            <e p="App.tsx" t="Include" />
+            <e p="YandexMetrica.tsx" t="Include" />
+            <e p="__tests__" t="Include">
+              <e p="Calculator.spec.tsx" t="Include" />
+              <e p="Outcomes.spec.tsx" t="Include" />
+            </e>
+            <e p="assets" t="Include">
+              <e p="img" t="Include">
+                <e p="logo.png" t="Include" />
+              </e>
+            </e>
+            <e p="components" t="Include">
+              <e p="Calculator.css" t="Include" />
+              <e p="Calculator.tsx" t="Include" />
+              <e p="incomes" t="Include">
+                <e p="Incomes.tsx" t="Include" />
+                <e p="Person.css" t="Include" />
+                <e p="Person.tsx" t="Include" />
+                <e p="Persons.tsx" t="Include" />
+              </e>
+              <e p="outcomes" t="Include">
+                <e p="Outcomes.tsx" t="Include" />
+                <e p="Transfers.tsx" t="Include" />
+              </e>
+            </e>
+            <e p="index.css" t="Include" />
+            <e p="index.tsx" t="Include" />
+            <e p="logo.svg" t="Include" />
+            <e p="react-app-env.d.ts" t="Include" />
+            <e p="serviceWorker.ts" t="Include" />
+            <e p="setupTests.ts" t="Include" />
+            <e p="store" t="Include">
+              <e p="Calculator" t="Include">
+                <e p="actions.ts" t="Include" />
+                <e p="reducer.ts" t="Include" />
+                <e p="state.ts" t="Include" />
+                <e p="urls.ts" t="Include" />
+              </e>
+              <e p="configureStore.ts" t="Include" />
+              <e p="model" t="Include">
+                <e p="Person.ts" t="Include" />
+                <e p="RandomPerson.ts" t="Include" />
+                <e p="RandomTransfer.ts" t="Include" />
+                <e p="Transfer.ts" t="Include" />
+              </e>
+            </e>
+            <e p="webpack-env.d.ts" t="Include" />
+          </e>
+          <e p="tsconfig.json" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="CalculatorController.cs" t="Include" />
+        </e>
+        <e p="Izzy.Web.csproj" t="IncludeRecursive" />
+        <e p="Middlewares" t="Include">
+          <e p="HealthCheckMiddleware.cs" t="Include" />
+        </e>
+        <e p="Model" t="Include">
+          <e p="DifferenceTransfer.cs" t="Include" />
+          <e p="Person.cs" t="Include" />
+          <e p="PersonWithFormula.cs" t="Include" />
+          <e p="Receipt.cs" t="Include" />
+          <e p="Transfer.cs" t="Include" />
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Error.cshtml" t="Include" />
+          <e p="Error.cshtml.cs" t="Include" />
+          <e p="_ViewImports.cshtml" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Izzy.Web.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="out" t="Include">
+          <e p="Client" t="Include">
+            <e p="build" t="Include">
+              <e p="asset-manifest.json" t="Include" />
+              <e p="favicon.ico" t="Include" />
+              <e p="index.html" t="Include" />
+              <e p="manifest.json" t="Include" />
+              <e p="precache-manifest.7f758d096e79f13c9766c0c09fc12fc0.js" t="Include" />
+              <e p="precache-manifest.a00d66d95b0a219db84d84991a8a0491.js" t="Include" />
+              <e p="service-worker.js" t="Include" />
+              <e p="static" t="Include">
+                <e p="css" t="Include">
+                  <e p="main.ebb4f4e8.chunk.css" t="Include" />
+                  <e p="main.ebb4f4e8.chunk.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="1.00136703.chunk.js" t="Include" />
+                  <e p="1.00136703.chunk.js.map" t="Include" />
+                  <e p="main.7608ee8d.chunk.js" t="Include" />
+                  <e p="main.7608ee8d.chunk.js.map" t="Include" />
+                  <e p="main.8303c176.chunk.js" t="Include" />
+                  <e p="main.8303c176.chunk.js.map" t="Include" />
+                  <e p="runtime~main.229c360f.js" t="Include" />
+                  <e p="runtime~main.229c360f.js.map" t="Include" />
+                  <e p="runtime~main.4aa8b7bd.js" t="Include" />
+                  <e p="runtime~main.4aa8b7bd.js.map" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Izzy.Web.Views.dll" t="Include" />
+          <e p="Izzy.Web.Views.pdb" t="Include" />
+          <e p="Izzy.Web.deps.json" t="Include" />
+          <e p="Izzy.Web.dll" t="Include" />
+          <e p="Izzy.Web.pdb" t="Include" />
+          <e p="Izzy.Web.runtimeconfig.json" t="Include" />
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="out" t="Include">
+            <e p="Client" t="Include">
+              <e p="build" t="Include">
+                <e p="asset-manifest.json" t="Include" />
+                <e p="manifest.json" t="Include" />
+              </e>
+            </e>
+            <e p="Izzy.Web.deps.json" t="Include" />
+            <e p="Izzy.Web.runtimeconfig.json" t="Include" />
+            <e p="appsettings.Development.json" t="Include" />
+            <e p="appsettings.json" t="Include" />
+            <e p="web.config" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+        <e p="package-lock.json" t="Include" />
+      </e>
+      <e p="Izzy.Web.Tests" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="Izzy.Web.Tests.csproj" t="IncludeRecursive" />
+        <e p="ReceiptTests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Izzy.Web.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="Izzy.Web.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="izzy.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

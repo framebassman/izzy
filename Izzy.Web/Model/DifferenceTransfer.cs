@@ -8,8 +8,8 @@ namespace Izzy.Web.Model
             : base(from, to, roublesDiff)
         {
             if (roublesDiff < 0) {
-                this.From = to.Name;
-                this.To = from.Name;
+                this.From = to.Name();
+                this.To = from.Name();
                 this.Roubles = Math.Abs(roublesDiff);
             }
         }

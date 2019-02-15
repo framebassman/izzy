@@ -16,10 +16,10 @@ namespace Izzy.Web.Model
         public List<Transfer> Transfers()
         {
             var transfers = new List<Transfer>();
-            var total = this._persons.Sum(p => p.Roubles);
+            var total = this._persons.Sum(p => p.Roubles());
             var roublesPerOne = Decimal.Round(total / this._persons.Count(), 2);
             var personsTop = this._persons
-                .OrderByDescending(p => p.Roubles);
+                .OrderByDescending(p => p.Roubles());
             var spender = personsTop.First();
             var personsExceptSpender = personsTop.Skip(1);
             foreach (var person in personsExceptSpender)
@@ -28,7 +28,7 @@ namespace Izzy.Web.Model
                     new DifferenceTransfer(
                         person,
                         spender,
-                        roublesPerOne - person.Roubles
+                        roublesPerOne - person.Roubles()
                     )
                 );
             }
