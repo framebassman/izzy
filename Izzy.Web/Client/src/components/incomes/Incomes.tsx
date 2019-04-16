@@ -36,10 +36,11 @@ export class Incomes extends Component<any, any> {
                         <Field 
                           name={`persons.${index}.name`}
                           render={({field, form}: FieldProps<any>) => (
-                            <Input
+                            <TextField
                               name={`persons.${index}.name`}
                               className="person__input"
                               placeholder={person.name}
+                              autoComplete="off"
                               onChange={(event) => {
                                   field.onChange(event)
                                   form.setFieldValue(`persons.${index}.name`, event.target.value)
@@ -51,10 +52,12 @@ export class Incomes extends Component<any, any> {
                         <Field 
                           name={`persons.${index}.roubles`}
                           render={({field, form}: FieldProps<any>) => (
-                            <Input
+                            <TextField
                               name={`persons.${index}.roubles`}
                               className="person__input"
                               placeholder={person.roubles.toString()}
+                              autoComplete="off"
+                              type="number"
                               onChange={(event) => {
                                   field.onChange(event)
                                   form.setFieldValue(`persons.${index}.roubles`, event.target.value)
