@@ -29,7 +29,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://romashov.tech/izzy",
+  "homepage": "http://cf.jare.io/?u=https://romashov.tech/izzy",
   "eslintConfig": {
     "extends": "react-app"
   },

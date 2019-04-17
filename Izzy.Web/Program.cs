@@ -36,7 +36,7 @@ namespace Izzy.Web
                 )
                 .UseSentry(options =>
                 {
-                    options.Release = "1.0.6";
+                    options.Release = "1.0.7";
                     options.Environment = CurrentEnv();
                     options.MaxQueueItems = 100;
                     options.ShutdownTimeout = TimeSpan.FromSeconds(5);
