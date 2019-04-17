@@ -42,8 +42,9 @@ export class Incomes extends Component<any, any> {
                                 placeholder={person.name}
                                 autoComplete="off"
                                 onChange={(event) => {
-                                  field.onChange(event)
-                                  form.setFieldValue(`persons.${index}.name`, event.target.value)
+                                    field.onChange(event)
+                                    form.setFieldValue(`persons.${index}.name`, event.target.value)
+                                  }
                                 }
                               />
                             </div>
@@ -59,8 +60,9 @@ export class Incomes extends Component<any, any> {
                                 autoComplete="off"
                                 type="number"
                                 onChange={(event) => {
-                                  field.onChange(event)
-                                  form.setFieldValue(`persons.${index}.roubles`, event.target.value)
+                                    field.onChange(event)
+                                    form.setFieldValue(`persons.${index}.roubles`, event.target.value)
+                                  }
                                 }
                               />
                             </div>
