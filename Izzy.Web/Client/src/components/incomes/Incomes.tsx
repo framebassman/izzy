@@ -36,34 +36,36 @@ export class Incomes extends Component<any, any> {
                         <Field 
                           name={`persons.${index}.name`}
                           render={({field, form}: FieldProps<any>) => (
-                            <TextField
-                              name={`persons.${index}.name`}
-                              className="person__input"
-                              placeholder={person.name}
-                              autoComplete="off"
-                              onChange={(event) => {
-                                  field.onChange(event)
-                                  form.setFieldValue(`persons.${index}.name`, event.target.value)
+                            <div className="person__input">
+                              <TextField
+                                name={`persons.${index}.name`}
+                                placeholder={person.name}
+                                autoComplete="off"
+                                onChange={(event) => {
+                                    field.onChange(event)
+                                    form.setFieldValue(`persons.${index}.name`, event.target.value)
+                                  }
                                 }
-                              }
-                            />
+                              />
+                            </div>
                           )}
                         />
                         <Field 
                           name={`persons.${index}.roubles`}
                           render={({field, form}: FieldProps<any>) => (
-                            <TextField
-                              name={`persons.${index}.roubles`}
-                              className="person__input"
-                              placeholder={person.roubles.toString()}
-                              autoComplete="off"
-                              type="number"
-                              onChange={(event) => {
-                                  field.onChange(event)
-                                  form.setFieldValue(`persons.${index}.roubles`, event.target.value)
+                            <div className="person__input">
+                              <TextField
+                                name={`persons.${index}.roubles`}
+                                placeholder={person.roubles.toString()}
+                                autoComplete="off"
+                                type="number"
+                                onChange={(event) => {
+                                    field.onChange(event)
+                                    form.setFieldValue(`persons.${index}.roubles`, event.target.value)
+                                  }
                                 }
-                              }
-                            />
+                              />
+                            </div>
                           )}
                         />
                       </div>
