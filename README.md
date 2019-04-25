@@ -10,7 +10,7 @@
 
 
 ### CI status
-| Branch        | Travis-CI                                                                          |
-| ------------- |:----------------------------------------------------------------------------------:|
-| master        | ![](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=master "master status") |
-| dev           | ![](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=dev    "dev status")    |
+| Branch        | Travis-CI                                                                                                                              |
+| ------------- |:--------------------------------------------------------------------------------------------------------------------------------------:|
+| master        | [![](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=master "master status")](https://travis-ci.com/FrameBassman/izzy/branches) |
+| dev           | [![](https://api.travis-ci.com/FrameBassman/izzy.svg?branch=dev    "dev status")](https://travis-ci.com/FrameBassman/izzy/branches)    |
