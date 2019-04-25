@@ -33,6 +33,10 @@ jobs:
         on:
           tags: true
 
+stages:
+  - Test
+  - name: Deploy
+    if: branch = master
 branches:
   only:
     - /.*/
