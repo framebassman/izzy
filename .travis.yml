@@ -1,12 +1,6 @@
 jobs:
   include:
     - stage: Test
-      language: csharp
-      dist: xenial
-      mono: none
-      dotnet: 2.2
-      script:
-        - echo "hi from test"
     # - stage: Test
     #   language: csharp
     #   dist: xenial
@@ -32,7 +26,9 @@ jobs:
     - stage: Deploy
       services:
         - docker
-      script: echo "hi from deploy"
+      env:
+        - RELEASE_NUMBER=1.1.$TRAVIS_BUILD_NUMBER
+      script: echo $RELEASE_NUMBER
       # script: bash Scripts/deploy.sh
       # deploy:
       #   provider: releases
