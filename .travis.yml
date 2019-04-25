@@ -4,45 +4,46 @@ jobs:
       language: csharp
       dist: xenial
       mono: none
-      script: echo "FROM TEST"
-    # - stage: Test
-    #   language: csharp
-    #   dist: xenial
-    #   mono: none
-    #   dotnet: 2.2
-    #   install: 
-    #     - dotnet clean
-    #     - dotnet restore
-    #   script:
-    #     - dotnet build
-    #     - dotnet test Izzy.Web.Tests
+      dotnet: 2.2
+      install: 
+        - dotnet clean
+        - dotnet restore
+      script:
+        - dotnet build
+        - dotnet test Izzy.Web.Tests
 
-    # - language: node_js
-    #   node_js:
-    #     - 10.15.0
-    #   before_install:
-    #     - cd Izzy.Web/Client/
-    #   install:
-    #     - npm install
-    #   script:
-    #     - npm test
+    - language: node_js
+      node_js:
+        - 10.15.0
+      before_install:
+        - cd Izzy.Web/Client/
+      install:
+        - npm install
+      script:
+        - npm test
 
     - stage: Deploy
       services:
         - docker
       env:
         - RELEASE_NUMBER=1.1.$TRAVIS_BUILD_NUMBER
-      script: echo $RELEASE_NUMBER
-      # script: bash Scripts/deploy.sh
-      # deploy:
-      #   provider: releases
-      #   api_key: $GITHUB_OAUTH_TOKEN
-      #   skip_cleanup: true
+      script:
+        - docker build --file ./Dockerfile . --tag framebassman/izzy:$RELEASE_NUMBER
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push framebassman/izzy
+      before_deploy:
+        - git config --local user.name $GIT_USERNAME
+        - git config --local user.email $GIT_EMAIL
+        - git tag $RELEASE_NUMBER
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        skip_cleanup: true
 
 stages:
   - Test
   - name: Deploy
-    if: branch = feature/ci
+    if: branch = master
 branches:
   only:
     - /.*/
