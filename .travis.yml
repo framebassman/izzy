@@ -25,18 +25,17 @@ jobs:
     - stage: Deploy
       services:
         - docker
-      script: bash Scripts/deploy.sh
-      deploy:
-        provider: releases
-        api_key: $GITHUB_OAUTH_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
+      script: echo "hi"
+      # script: bash Scripts/deploy.sh
+      # deploy:
+      #   provider: releases
+      #   api_key: $GITHUB_OAUTH_TOKEN
+      #   skip_cleanup: true
 
 stages:
   - Test
   - name: Deploy
-    if: branch = master
+    if: branch == master
 branches:
   only:
     - /.*/
