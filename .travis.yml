@@ -5,27 +5,34 @@ jobs:
       dist: xenial
       mono: none
       dotnet: 2.2
-      install: 
-        - dotnet clean
-        - dotnet restore
       script:
-        - dotnet build
-        - dotnet test Izzy.Web.Tests
+        - echo "hi from test"
+    # - stage: Test
+    #   language: csharp
+    #   dist: xenial
+    #   mono: none
+    #   dotnet: 2.2
+    #   install: 
+    #     - dotnet clean
+    #     - dotnet restore
+    #   script:
+    #     - dotnet build
+    #     - dotnet test Izzy.Web.Tests
 
-    - language: node_js
-      node_js:
-        - 10.15.0
-      before_install:
-        - cd Izzy.Web/Client/
-      install:
-        - npm install
-      script:
-        - npm test
+    # - language: node_js
+    #   node_js:
+    #     - 10.15.0
+    #   before_install:
+    #     - cd Izzy.Web/Client/
+    #   install:
+    #     - npm install
+    #   script:
+    #     - npm test
 
     - stage: Deploy
       services:
         - docker
-      script: echo "hi"
+      script: echo "hi from deploy"
       # script: bash Scripts/deploy.sh
       # deploy:
       #   provider: releases
@@ -35,7 +42,7 @@ jobs:
 stages:
   - Test
   - name: Deploy
-    if: branch == master
+    if: branch = feature/ci
 branches:
   only:
     - /.*/
