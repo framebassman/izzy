@@ -1,7 +1,7 @@
-matrix:
-  fast_finish: true
+jobs:
   include:
-    - language: csharp
+    - stage: Test
+      language: csharp
       dist: xenial
       mono: none
       dotnet: 2.2
