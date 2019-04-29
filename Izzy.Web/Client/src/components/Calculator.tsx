@@ -4,10 +4,16 @@ import { connect } from 'react-redux';
 import { actionCreators } from '../store/Calculator/actions';
 import { Incomes } from './incomes/Incomes';
 import { Outcomes } from './outcomes/Outcomes';
+import { Share } from './Share';
 import './Calculator.css';
 
 function Display(props: any) {
   const {increment, people, transfers, calculate} = props;
+
+  if (window.location.search != undefined) {
+    return <Share data={new URLSearchParams(window.location.search)}/>
+  }
+
   if ( transfers.length === 0 ) {
     return <Incomes increment={increment} people={people} calculate={calculate}/>
   } else {
