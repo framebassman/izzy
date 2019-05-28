@@ -21,7 +21,7 @@ namespace Izzy.Web.Model
             var personsTop = this._persons.OrderByDescending(p => p.Roubles).ToList();
             var moreThanMiddle = personsTop.Where(p => p.Roubles >= middle).ToList();
             var lessThanMiddle = personsTop.Except(moreThanMiddle).ToList();
-            for (int i = 0; i < personsTop.Count; i++)
+            for (int i = 0; i < moreThanMiddle.Count; i++)
             {
                 var spender = moreThanMiddle[i];
                 for (int j = lessThanMiddle.Count - 1; j >= 0; j--)
