@@ -21,10 +21,12 @@ namespace Izzy.Web.Tests.Receipts.TwoMoreThanMiddle
                 }
             );
 
+            var transfers = receipt.Transfers();
+
             // Assert
-            NHamcrest.XUnit.Assert.That(receipt.Transfers(), Is.OfLength(2));
-            NHamcrest.XUnit.Assert.That(receipt, new HasTransfer(new Transfer("Bob", "Alice", 33.33m)));
-            NHamcrest.XUnit.Assert.That(receipt, new HasTransfer(new Transfer("Carol", "Bob", 566.67m)));
+            NHamcrest.XUnit.Assert.That(transfers, Is.OfLength(2));
+            NHamcrest.XUnit.Assert.That(transfers, new HasTransfer(new Transfer("Bob", "Alice", 33.33m)));
+            NHamcrest.XUnit.Assert.That(transfers, new HasTransfer(new Transfer("Carol", "Bob", 566.67m)));
         }
     }
 }

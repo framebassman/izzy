@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Izzy.Web.Tests.Matchers
 {
-    public class HasTransfer : IMatcher<Receipt>
+    public class HasTransfer : IMatcher<List<Transfer>>
     {
         private Transfer _expected;
         
@@ -21,9 +21,9 @@ namespace Izzy.Web.Tests.Matchers
             description.AppendText("From DescribeTo");
         }
 
-        public bool Matches(Receipt actual)
+        public bool Matches(List<Transfer> actual)
         {
-            return actual.Transfers()
+            return actual
                 .Any(
                     t =>
                         t.From == _expected.From
@@ -32,9 +32,9 @@ namespace Izzy.Web.Tests.Matchers
                 );
         }
 
-        public void DescribeMismatch(Receipt item, IDescription description)
+        public void DescribeMismatch(List<Transfer> item, IDescription description)
         {
-            description.AppendText("From DescribeMismatch").AppendText(JsonConvert.SerializeObject(item.Transfers()));
+            description.AppendText("From DescribeMismatch").AppendText(JsonConvert.SerializeObject(item));
         }
     }
 }
