@@ -24,7 +24,7 @@ describe('<Outcomes />', () => {
         done();
     });
 
-    it('"я" should be transform to "яне"', done => {
+    it('"я" should be transform to "яне"', async () => {
         // Arrange
         const transfers: any[] = [
             { from: 'Алиса', to: 'я', roubles: 1 }
@@ -36,10 +36,9 @@ describe('<Outcomes />', () => {
         // Assert
         const toCell = component.find('#to1').hostNodes();
         expect(toCell.text()).toEqual('мне');
-        done();
     });
 
-    it('"Боб" should be transform to "Бобу"', done => {
+    it('"Боб" should be transform to "Бобу"', async () => {
         // Arrange
         const transfers: any[] = [
             { from: 'Алиса', to: 'Боб', roubles: 1 }
@@ -51,6 +50,5 @@ describe('<Outcomes />', () => {
         // Assert
         const toCell = component.find('#to1').hostNodes();
         expect(toCell.text()).toEqual('Бобу');
-        done();
     });
 });

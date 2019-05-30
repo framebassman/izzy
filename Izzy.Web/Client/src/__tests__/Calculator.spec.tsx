@@ -34,7 +34,7 @@ describe('<Calculator />', () => {
     component.unmount();
   });
 
-  it ('Add 1 person after click on Add button', done => {
+  it('Add 1 person after click on Add button', async () => {
     // Arrange
     const personsBefore = component.find('.person').length;
 
@@ -46,38 +46,32 @@ describe('<Calculator />', () => {
     const personsAfter = component.find('.person').length;
     expect(personsAfter - personsBefore)
         .toEqual(1);
-    done();
   });
 
-  it ('one person in form by default', done => {
+  it('one person in form by default', async () => {
     // Act
     const personsCount = component.find('.person').length;
 
     // Assert
     expect(personsCount).toEqual(1);
-    done();
   });
 
-  it ('calc button is disabled, if there is one person in form', done => {
+  it('calc button is disabled, if there is one person in form', async () => {
     // Arrange
     const addButton = component.find('#calc').hostNodes();
 
     // Act
     addButton.simulate('click');
-    const personsAfter = component.find('.person').length
+    const personsAfter = component.find('.person').length;
 
     // Assert
     expect(personsAfter).toEqual(1);
-    done();
   });
 
-  it ('outcomes are displayed after clicking on \'Рассчитать\' button', done => {
+  it('outcomes are displayed after clicking on \'Рассчитать\' button', async () => {
     // Act
     const addButton = component.find('#add').hostNodes();
     addButton.simulate('click');
-
-    console.log(123)
-
     component.find('#persons_form')
       .children()
       .find('form')
@@ -90,7 +84,6 @@ describe('<Calculator />', () => {
       component.update();
       expect(component.find('#transfers').hostNodes().exists())
           .toEqual(true);
-      done();
     }, 1000);
   });
 });
