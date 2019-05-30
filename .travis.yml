@@ -1,6 +1,11 @@
 jobs:
   include:
     - stage: Test
+      language: minimal
+      script:
+        - git clone git@github.com:FrameBassman/site.git
+
+    - stage: Test
       language: csharp
       dist: xenial
       mono: none
