@@ -4,6 +4,7 @@ using System.Net;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Sentry.Extensibility;
 using Serilog;
 
 namespace Izzy.Web
@@ -33,16 +34,17 @@ namespace Izzy.Web
         private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://0.0.0.0:5000")
                 .UseSerilog()
                 .UseSentry(options =>
-                {
-                    options.Release = "1.0.7";
-                    options.Environment = CurrentEnv();
-                    options.MaxQueueItems = 100;
-                    options.ShutdownTimeout = TimeSpan.FromSeconds(5);
-                    options.DecompressionMethods = DecompressionMethods.None;
-                });
+                    {
+                        options.Environment = CurrentEnv();
+                        options.MaxQueueItems = 100;
+                        options.ShutdownTimeout = TimeSpan.FromSeconds(5);
+                        options.DecompressionMethods = DecompressionMethods.None;
+                        options.MaxRequestBodySize = RequestSize.Always;
+                        options.Release = Environment.GetEnvironmentVariable("SENTRY_RELEASE");
+                    }
+                );
 
         private static IConfiguration BuildConfiguration()
         {
