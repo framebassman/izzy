@@ -23,6 +23,7 @@ jobs:
         - npm test
 
     - stage: Deploy
+      language: minimal
       services:
         - docker
       env:
