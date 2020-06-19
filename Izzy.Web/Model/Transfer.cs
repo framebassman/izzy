@@ -6,13 +6,13 @@ namespace Izzy.Web.Model
     public class Transfer
     {
         [JsonProperty("to")]
-        public String To;
+        public String To { get; set; }
 
         [JsonProperty("from")]
-        public String From;
+        public String From { get; set; }
 
         [JsonProperty("roubles")]
-        public Decimal Roubles;
+        public Decimal Roubles { get; set; }
 
         public Transfer(String from, String to, Decimal roubles)
         {
