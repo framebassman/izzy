@@ -6,10 +6,12 @@ namespace Izzy.Web.Model
     public class Person
     {
         [JsonProperty("name")]
-        public String Name;
+        public String Name { get; set; }
 
         [JsonProperty("roubles")]
-        public Decimal Roubles;
+        public Decimal Roubles { get; set; }
+
+        public Person() {}
 
         public Person(String name, Decimal roubles)
         {

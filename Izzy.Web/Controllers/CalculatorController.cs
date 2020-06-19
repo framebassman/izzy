@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Izzy.Web.Model;
-using Newtonsoft.Json;
 
 namespace Izzy.Web.Controllers
 {

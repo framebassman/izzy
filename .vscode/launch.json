@@ -11,18 +11,18 @@
             "processId": "${command:pickProcess}"
         },
         {
-            "name": ".NET Core Launch (web)",
+            "name": "Debug .NET Core Application",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Izzy.Web/bin/Debug/netcoreapp2.2/Izzy.Web.dll",
+            "program": "${workspaceFolder}/Izzy.Web/bin/Debug/netcoreapp3.1/Izzy.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Izzy.Web",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
-                "enabled": true,
+                "enabled": false,
                 "args": "${auto-detect-url}",
                 "windows": {
                     "command": "cmd.exe",
