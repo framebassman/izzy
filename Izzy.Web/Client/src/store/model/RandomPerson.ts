@@ -18,7 +18,7 @@ function randomSecondName(): string {
   return secondNames[randomNumber(0, secondNames.length - 1)];
 }
 
-function randomNumber(min: number, max: number) {
+function randomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
