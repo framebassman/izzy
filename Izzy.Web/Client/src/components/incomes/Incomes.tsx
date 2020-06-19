@@ -61,7 +61,7 @@ export class Incomes extends Component<any, any> {
                                 type="number"
                                 onChange={(event) => {
                                     field.onChange(event)
-                                    form.setFieldValue(`persons.${index}.roubles`, event.target.value)
+                                    form.setFieldValue(`persons.${index}.roubles`, Number(event.target.value))
                                   }
                                 }
                               />

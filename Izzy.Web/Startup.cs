@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Izzy.Web.Middlewares;
+using Microsoft.Extensions.Hosting;
 
 namespace Izzy.Web
 {
@@ -19,8 +18,9 @@ namespace Izzy.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddResponseCompression();
+            services.AddHealthChecks();
+            services.AddControllers();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -29,7 +29,7 @@ namespace Izzy.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -41,17 +41,17 @@ namespace Izzy.Web
                 app.UseHsts();
             }
 
-            app.UseMiddleware<HealthCheckMiddleware>();
+            app.UseResponseCompression();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseMvc(routes =>
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapHealthChecks("/healthcheck");
             });
-
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "Client";
