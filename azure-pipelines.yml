@@ -20,10 +20,10 @@ stages:
       continueOnError: false
       steps:
       - bash: |
-          echo $MY_MAPPED_ENV_VAR
+          echo $SENTRY_PROJECT
         displayName: Create release and notify Sentry of deploy
         env:
-          MY_MAPPED_ENV_VAR: $(SENTRY_PROJECT) # right way to map to an env variable
+          SENTRY_PROJECT: $(Sentry.Project) # right way to map to an env variable
 
 
       # - task: Docker@2
