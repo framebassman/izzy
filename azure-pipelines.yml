@@ -20,10 +20,15 @@ stages:
       continueOnError: false
       steps:
       - bash: |
-          echo $SENTRY_PROJECT
+          curl -sL https://sentry.io/get-cli/ | bash
+          export SENTRY_RELEASE=$(sentry-cli releases propose-version)
+          sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
+          sentry-cli releases set-commits $SENTRY_RELEASE --auto
+          sentry-cli releases finalize $SENTRY_RELEASE
+          sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
         displayName: Create release and notify Sentry of deploy
-        # env:
-        #   SENTRY_PROJECT: $(Sentry.Project) # right way to map to an env variable
+        env:
+          SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token) # right way to map to an env variable
 
 
       # - task: Docker@2
