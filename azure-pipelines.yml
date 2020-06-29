@@ -11,73 +11,74 @@ trigger:
     - '*'
 
 stages:
-  - stage: Build_Release
-    displayName: Build Docker image and push it to Docker Hub
-    jobs:
-    - job: Release
-      pool:
-        vmImage: 'ubuntu-latest'
-      continueOnError: false
-      steps:
-      - bash: |
-          curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
-          sentry-cli releases set-commits $SENTRY_RELEASE --auto
-        displayName: Create release and notify Sentry of deploy
-        env:
-          SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
-          SENTRY_RELEASE: $(Build.BuildNumber)
-
-      # - task: Docker@2
-      #   displayName: Login to Docker Hub
-      #   inputs:
-      #     command: login
-      #     containerRegistry: hub.docker.com
-
-      # - task: Docker@2
-      #   displayName: Build and Push
-      #   inputs:
-      #     command: buildAndPush
-      #     repository: framebassman/izzy
-      #     tags: $(Build.BuildNumber)
-
-  # - stage: Deploy
-  #   displayName: Deploy Docker images to Production environment
+  # - stage: Build_Release
+  #   displayName: Build Docker image and push it to Docker Hub
   #   jobs:
-  #     - deployment: CD
-  #       displayName: Deploy to production
-  #       environment:
-  #         name:  Production
-  #         resourceType: VirtualMachine
-  #         tags: web
-  #       strategy:
-  #         runOnce:
-  #           deploy:
-  #             steps:
-  #               - checkout: self
-  #                 clean: false
-  #               - script: make stop-prod
-  #                 displayName: Stop previous version
-  #               - script: |
-  #                   make docker-cleanup -i
-  #                   docker image prune --all --force
-  #                 displayName: Cleanup old docker images
-  #               - script: make start-prod
-  #                 displayName: Start new version
+  #   - job: Release
+  #     pool:
+  #       vmImage: 'ubuntu-latest'
+  #     continueOnError: false
+  #     steps:
+  #     - bash: |
+  #         curl -sL https://sentry.io/get-cli/ | bash
+  #         sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
+  #         sentry-cli releases set-commits $SENTRY_RELEASE --auto
+  #       displayName: Create release and notify Sentry of deploy
+  #       env:
+  #         SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
+  #         SENTRY_RELEASE: $(Build.BuildNumber)
 
-  - stage: Post_Deploy
-    displayName: Post deploy steps
+  #     - task: Docker@2
+  #       displayName: Login to Docker Hub
+  #       inputs:
+  #         command: login
+  #         containerRegistry: hub.docker.com
+
+  #     - task: Docker@2
+  #       displayName: Build and Push
+  #       inputs:
+  #         command: buildAndPush
+  #         repository: framebassman/izzy
+  #         tags: $(Build.BuildNumber)
+
+  - stage: Deploy
+    displayName: Deploy Docker images to Production environment
     jobs:
-    - job: Release
-      pool:
-        vmImage: 'ubuntu-latest'
-      continueOnError: false
-      steps:
-      - bash: |
-          curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli releases finalize $SENTRY_RELEASE
-          sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
-        displayName: Finish Sentry deployment
-        env:
-          SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
-          SENTRY_RELEASE: $(Build.BuildNumber)
+      - deployment: CD
+        displayName: Deploy to production
+        environment:
+          name:  Production
+          resourceType: VirtualMachine
+          tags: web
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                  clean: false
+                - bash: docker stop izzy
+                  displayName: Stop previous version
+                - bash: |
+                    docker-compose \
+                    --project-directory=${PWD} \
+                    --project-name=romashov.tech \
+                    -f Deploy/docker-compose.deploy.yml \
+                    build
+                  displayName: Start new version
+
+  # - stage: Post_Deploy
+  #   displayName: Post deploy steps
+  #   jobs:
+  #   - job: Release
+  #     pool:
+  #       vmImage: 'ubuntu-latest'
+  #     continueOnError: false
+  #     steps:
+  #     - bash: |
+  #         curl -sL https://sentry.io/get-cli/ | bash
+  #         sentry-cli releases finalize $SENTRY_RELEASE
+  #         sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
+  #       displayName: Finish Sentry deployment
+  #       env:
+  #         SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
+  #         SENTRY_RELEASE: $(Build.BuildNumber)
