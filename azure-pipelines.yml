@@ -20,8 +20,12 @@ stages:
       continueOnError: false
       steps:
       - bash: |
-          export MY=$(Build.BuildNumber)
-          echo $MY
+          curl -sL https://sentry.io/get-cli/ | bash
+          export SENTRY_RELEASE=$(Build.BuildNumber)
+          sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
+          sentry-cli releases set-commits $SENTRY_RELEASE --auto
+          sentry-cli releases finalize $SENTRY_RELEASE
+          sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
         displayName: Create release and notify Sentry of deploy
         env:
           SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token) # right way to map to an env variable
