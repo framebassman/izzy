@@ -20,7 +20,7 @@ stages:
       continueOnError: false
       steps:
       - script: |
-          echo ${{ SENTRY_PROJECT }}
+          echo $SENTRY_PROJECT
         displayName: Create release and notify Sentry of deploy
 
       # - task: Docker@2
