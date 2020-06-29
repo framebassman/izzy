@@ -75,8 +75,8 @@ stages:
       steps:
       - bash: |
           curl -sL https://sentry.io/get-cli/ | bash
-          sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
-          sentry-cli releases set-commits $SENTRY_RELEASE --auto
+          sentry-cli releases finalize $SENTRY_RELEASE
+          sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
         displayName: Finish Sentry deployment
         env:
           SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
