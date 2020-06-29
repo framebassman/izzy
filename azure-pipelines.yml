@@ -20,10 +20,8 @@ stages:
       continueOnError: false
       steps:
       - bash: |
-          echo $Build.BuildNumber
-          echo $(Build.BuildNumber)
-          echo $(BUILD_BUILDNUMBER)
-          echo $BUILD_BUILDNUMBER
+          export MY=$(Build.BuildNumber)
+          echo $MY
         displayName: Create release and notify Sentry of deploy
         env:
           SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token) # right way to map to an env variable
