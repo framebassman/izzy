@@ -19,17 +19,9 @@ stages:
         vmImage: 'ubuntu-latest'
       continueOnError: false
       steps:
-      - script: |
-          docker-compose \
-          --project-directory=${PWD} \
-          -f Deploy/docker-compose.release.yml \
-          build
-        displayName: Build image
-
       - task: Docker@2
-        displayName: Push image
+        displayName: Build and Push
         inputs:
-          containerRegistry: hub.docker.com
-          repository: docker.io/framebassman/izzy
-          command: push
+          command: buildAndPush
+          repository: framebassman/izzy
           tags: $(Build.BuildNumber)
