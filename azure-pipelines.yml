@@ -65,7 +65,7 @@ stages:
   #               - script: make start-prod
   #                 displayName: Start new version
 
-  - stage: Post deploy steps
+  - stage: Post_Deploy
     displayName: Post deploy steps
     jobs:
     - job: Release
