@@ -10,6 +10,8 @@ services:
             - "traefik.backend=web"
             - "traefik.frontend.rule=PathPrefixStrip:/"
             - "traefik.docker.network=romashovtech_default"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production
         networks:
             - romashovtech_default
         
