@@ -10,14 +10,26 @@ trigger:
     include:
     - '*'
 
-pool:
-  vmImage: 'ubuntu-latest'
+stages:
+  - stage: Build_Release
+    displayName: Build Docker image and push it to Docker Hub
+    jobs:
+    - job: Release
+      pool:
+        vmImage: 'ubuntu-latest'
+      continueOnError: false
+      steps:
+      - script: |
+          docker-compose \
+          --project-directory=${PWD} \
+          -f Deploy/docker-compose.release.yml \
+          build
+        displayName: Build image
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+      - task: Docker@2
+        displayName: Push image
+        inputs:
+          containerRegistry: hub.docker.com
+          repository: docker.io/framebassman/izzy
+          command: push
+          tags: $(Build.BuildNumber)
