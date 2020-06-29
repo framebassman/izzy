@@ -22,8 +22,8 @@ stages:
       - bash: |
           echo $SENTRY_PROJECT
         displayName: Create release and notify Sentry of deploy
-        env:
-          SENTRY_PROJECT: $(Sentry.Project) # right way to map to an env variable
+        # env:
+        #   SENTRY_PROJECT: $(Sentry.Project) # right way to map to an env variable
 
 
       # - task: Docker@2
