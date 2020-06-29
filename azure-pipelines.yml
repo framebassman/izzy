@@ -19,7 +19,7 @@ stages:
         vmImage: 'ubuntu-latest'
       continueOnError: false
       steps:
-      - script: |
+      - bash: |
           echo $SENTRY_PROJECT
         displayName: Create release and notify Sentry of deploy
 
