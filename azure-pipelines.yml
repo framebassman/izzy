@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 # trigger:
 # - master
 trigger: 
@@ -11,22 +6,24 @@ trigger:
     - '*'
 
 stages:
-  # - stage: Build_Release
-  #   displayName: Build Docker image and push it to Docker Hub
-  #   jobs:
-  #   - job: Release
-  #     pool:
-  #       vmImage: 'ubuntu-latest'
-  #     continueOnError: false
-  #     steps:
-  #     - bash: |
-  #         curl -sL https://sentry.io/get-cli/ | bash
-  #         sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
-  #         sentry-cli releases set-commits $SENTRY_RELEASE --auto
-  #       displayName: Create release and notify Sentry of deploy
-  #       env:
-  #         SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
-  #         SENTRY_RELEASE: $(Build.BuildNumber)
+  - stage: Build_Release
+    displayName: Just CI
+    jobs:
+    - job: Release
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+      - bash: echo Hi
+      displayName: Just push
+
+      # - bash: |
+      #     curl -sL https://sentry.io/get-cli/ | bash
+      #     sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
+      #     sentry-cli releases set-commits $SENTRY_RELEASE --auto
+      #   displayName: Create release and notify Sentry of deploy
+      #   env:
+      #     SENTRY_AUTH_TOKEN: $(Sentry.Auth.Token)
+      #     SENTRY_RELEASE: $(Build.BuildNumber)
 
   #     - task: Docker@2
   #       displayName: Login to Docker Hub
@@ -41,30 +38,30 @@ stages:
   #         repository: framebassman/izzy
   #         tags: $(Build.BuildNumber)
 
-  - stage: Deploy
-    displayName: Deploy Docker images to Production environment
-    jobs:
-      - deployment: CD
-        displayName: Deploy to production
-        environment:
-          name:  Production
-          resourceType: VirtualMachine
-          tags: web
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-                - checkout: self
-                  clean: false
-                - bash: docker stop izzy
-                  displayName: Stop previous version
-                - bash: |
-                    docker-compose \
-                    --project-directory=${PWD} \
-                    --project-name=romashov.tech \
-                    -f Deploy/docker-compose.deploy.yml \
-                    build
-                  displayName: Start new version
+  # - stage: Deploy
+  #   displayName: Deploy Docker images to Production environment
+  #   jobs:
+  #     - deployment: CD
+  #       displayName: Deploy to production
+  #       environment:
+  #         name:  Production
+  #         resourceType: VirtualMachine
+  #         tags: web
+  #       strategy:
+  #         runOnce:
+  #           deploy:
+  #             steps:
+  #               - checkout: self
+  #                 clean: false
+  #               - bash: docker stop izzy
+  #                 displayName: Stop previous version
+  #               - bash: |
+  #                   docker-compose \
+  #                   --project-directory=${PWD} \
+  #                   --project-name=romashov.tech \
+  #                   -f Deploy/docker-compose.deploy.yml \
+  #                   build
+  #                 displayName: Start new version
 
   # - stage: Post_Deploy
   #   displayName: Post deploy steps
