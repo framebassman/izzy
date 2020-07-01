@@ -13,7 +13,7 @@ stages:
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-      - bash: echo Hi!!
+      - bash: echo Hi!!!
       displayName: Just push
 
       # - bash: |
