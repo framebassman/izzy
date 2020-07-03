@@ -41,7 +41,7 @@ jobs:
         api_key: $GITHUB_OAUTH_TOKEN
         skip_cleanup: true
         on:
-          branches: azure
+          branch: azure
 
 stages:
   # - Test
