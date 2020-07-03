@@ -40,6 +40,8 @@ jobs:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
         skip_cleanup: true
+        on:
+          branches: azure
 
 stages:
   # - Test
