@@ -1,26 +1,26 @@
 jobs:
   include:
-    - stage: Test
-      language: csharp
-      dist: xenial
-      mono: none
-      dotnet: 3.1
-      install: 
-        - dotnet clean
-        - dotnet restore
-      script:
-        - dotnet build
-        - dotnet test Izzy.Web.Tests
+    # - stage: Test
+    #   language: csharp
+    #   dist: xenial
+    #   mono: none
+    #   dotnet: 3.1
+    #   install: 
+    #     - dotnet clean
+    #     - dotnet restore
+    #   script:
+    #     - dotnet build
+    #     - dotnet test Izzy.Web.Tests
 
-    - language: node_js
-      node_js:
-        - 12.15.0
-      before_install:
-        - cd Izzy.Web/Client/
-      install:
-        - npm install
-      script:
-        - npm test
+    # - language: node_js
+    #   node_js:
+    #     - 12.15.0
+    #   before_install:
+    #     - cd Izzy.Web/Client/
+    #   install:
+    #     - npm install
+    #   script:
+    #     - npm test
 
     - stage: Deploy
       language: minimal
@@ -42,9 +42,9 @@ jobs:
         skip_cleanup: true
 
 stages:
-  - Test
+  # - Test
   - name: Deploy
-    if: branch = master AND type != pull_request
+    if: branch = azure AND type != pull_request
 branches:
   only:
     - /.*/
