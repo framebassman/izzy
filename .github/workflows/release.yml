@@ -7,8 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: avakar/tag-and-release@v1
-        draft: true
         with:
+          draft: true
           tag_name: ${{ env.GITHUB_RUN_ID }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
