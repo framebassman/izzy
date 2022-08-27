@@ -8,6 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: avakar/tag-and-release@v1
         with:
-          tag_name: 1.1.300
+          tag_name: v${{ env.GITHUB_RUN_ID }}
+          release_name: release_${{ env.GITHUB_RUN_ID }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
