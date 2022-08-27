@@ -2,7 +2,7 @@ name: Release
 
 on: push
 jobs:
-  release:
+  Release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
