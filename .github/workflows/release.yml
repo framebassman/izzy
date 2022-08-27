@@ -11,9 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: curl -sL https://sentry.io/get-cli/ | bash
-        name: Install Sentry
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -23,10 +20,12 @@ jobs:
           username: framebassman
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - run: sentry-cli releases --org kolenka-inc --project izzy new $VERSION
-        name: Start release in Sentry
+      - name: Sentry Release
+        uses: getsentry/action-release@v1.0.0
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: kolenka-inc
+          SENTRY_PROJECT: izzy
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -41,8 +40,3 @@ jobs:
           release_name: ${{ env.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: sentry-cli releases --org kolenka-inc --project izzy finalize $VERSION
-        name: 'Finish release in Sentry'
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
