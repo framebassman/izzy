@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
 import { Formik, Form, Field, FieldArray, FieldProps } from 'formik';
 import './Person.css';
 import { RandomPerson } from '../../store/model/RandomPerson';
