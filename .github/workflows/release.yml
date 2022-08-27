@@ -1,27 +1,47 @@
 name: Release
 
 on: push
+
+env:
+  VERSION: 1.2.${{ github.run_id }}
+
 jobs:
   Release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - script: |
+          curl -sL https://sentry.io/get-cli/ | bash
+        displayName: 'Install Sentry'
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: framebassman
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - script: |
+          sentry-cli releases --org kolenka-inc --project izzy new $VERSION
+        displayName: 'Start release in Sentry'
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: framebassman/izzy:1.2.${{ github.run_id }}
+          tags: framebassman/izzy:${{ env.VERSION }}
+
       - uses: avakar/tag-and-release@v1
         with:
-          tag_name: 1.2.${{ github.run_id }}
-          release_name: 1.2.${{ github.run_id }}
+          tag_name: ${{ env.VERSION }}
+          release_name: ${{ env.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - script: |
+          sentry-cli releases --org kolenka-inc --project izzy finalize $VERSION
+        displayName: 'Finish release in Sentry'
