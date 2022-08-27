@@ -27,6 +27,8 @@ jobs:
       - script: |
           sentry-cli releases --org kolenka-inc --project izzy new $VERSION
         displayName: 'Start release in Sentry'
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -45,3 +47,5 @@ jobs:
       - script: |
           sentry-cli releases --org kolenka-inc --project izzy finalize $VERSION
         displayName: 'Finish release in Sentry'
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
