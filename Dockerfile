@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1.201-alpine3.11 AS build-env
 
-RUN apk add --update 'nodejs=12.15.0-r1' 'npm=12.15.0-r1'
+RUN apk add --update 'nodejs>12.15.0-r1' 'npm>12.15.0-r1'
 
 COPY ./Izzy.Web /app
 WORKDIR /app
