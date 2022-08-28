@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 const petrovich = require('petrovich');
 
 function destInPropriateCase(dest: string): string {
