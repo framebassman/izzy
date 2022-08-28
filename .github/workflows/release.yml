@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Sentry Release
-        uses: getsentry/action-release@v1.0.0
+        uses: getsentry/action-release@v1.2.0
         with:
           finalize: false
           version: ${{ env.VERSION }}
@@ -47,7 +47,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sentry Release
-        uses: getsentry/action-release@v1.0.0
+        uses: getsentry/action-release@v1.2.0
         with:
           finalize: true
           version: ${{ env.VERSION }}
