@@ -26,6 +26,7 @@ jobs:
         uses: getsentry/action-release@v1.0.0
         with:
           finalize: false
+          version: ${{ env.VERSION }}
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: kolenka-inc
@@ -49,6 +50,7 @@ jobs:
         uses: getsentry/action-release@v1.0.0
         with:
           finalize: true
+          version: ${{ env.VERSION }}
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: kolenka-inc
