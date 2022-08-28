@@ -1,0 +1,9 @@
+.person {
+  max-width: 300px;
+  display: flex;
+}
+
+.person__input {
+  max-width: 120px;
+  margin: 4px;
+}
