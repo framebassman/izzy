@@ -37,6 +37,8 @@ jobs:
         with:
           context: .
           push: true
+          build-args: |
+            SENTRY_RELEASE_BUILDTIME=${{ env.VERSION }}
           tags: framebassman/izzy:${{ env.VERSION }}
 
       - uses: avakar/tag-and-release@v1
