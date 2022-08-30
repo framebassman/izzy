@@ -6,7 +6,7 @@ export class Person extends Component<any, any> {
   render() {
     const {man} = this.props;
     return (
-      <div className="person">
+      <div className="person" data-testid="person">
         <Input
           className="person__input"
           placeholder={man.name} 

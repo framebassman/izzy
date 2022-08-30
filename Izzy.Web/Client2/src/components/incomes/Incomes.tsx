@@ -26,13 +26,14 @@ export class Incomes extends Component<any, any> {
                   <div>
                     <Button
                       id="add"
+                      data-testid="add"
                       onClick={() => arrayHelpers.insert(values.persons.length, new RandomPerson())}
                     >
                       Добавить
                     </Button>
                     {values.persons.map((person, index) => (
                       <div key={index} className="person">
-                        <Field 
+                        <Field
                           name={`persons.${index}.name`}
                           render={({field, form}: FieldProps<any>) => (
                             <div className="person__input">
@@ -40,6 +41,7 @@ export class Incomes extends Component<any, any> {
                                 name={`persons.${index}.name`}
                                 placeholder={person.name}
                                 autoComplete="off"
+                                variant="standard"
                                 onChange={(event) => {
                                     field.onChange(event)
                                     form.setFieldValue(`persons.${index}.name`, event.target.value)
@@ -49,7 +51,7 @@ export class Incomes extends Component<any, any> {
                             </div>
                           )}
                         />
-                        <Field 
+                        <Field
                           name={`persons.${index}.roubles`}
                           render={({field, form}: FieldProps<any>) => (
                             <div className="person__input">
@@ -57,6 +59,7 @@ export class Incomes extends Component<any, any> {
                                 name={`persons.${index}.roubles`}
                                 placeholder={person.roubles.toString()}
                                 autoComplete="off"
+                                variant="standard"
                                 type="number"
                                 onChange={(event) => {
                                     field.onChange(event)
@@ -69,7 +72,7 @@ export class Incomes extends Component<any, any> {
                         />
                       </div>
                     ))}
-                    <Button 
+                    <Button
                       type="submit"
                       id="calc"
                       color="primary"

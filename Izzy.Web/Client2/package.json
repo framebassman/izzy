@@ -50,5 +50,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/moxios": "^0.4.15",
+    "@types/webpack-env": "^1.18.0",
+    "moxios": "^0.4.0"
   }
 }
