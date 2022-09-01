@@ -15,7 +15,7 @@ describe('<Outcomes />', () => {
         component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = screen.getByTestId('to1');
+        const toCell = screen.getByTestId('to0');
         expect(toCell).toHaveTextContent('Мне');
         done();
     });
@@ -30,7 +30,7 @@ describe('<Outcomes />', () => {
         component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = screen.getByTestId('to1');
+        const toCell = screen.getByTestId('to0');
         expect(toCell).toHaveTextContent('мне');
         done();
     });
@@ -45,7 +45,7 @@ describe('<Outcomes />', () => {
         component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = screen.getByTestId('#to1');
+        const toCell = screen.getByTestId('to0');
         expect(toCell).toHaveTextContent('Бобу');
         done();
     });
