@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 const petrovich = require('petrovich');
 
 function destInPropriateCase(dest: string): string {
@@ -29,9 +29,9 @@ export class Transfers extends Component<any, any> {
     for (const tr of src) {
       inputs.push(
         <TableRow key={i++}>
-          <TableCell id={`from${i}`}>{tr.from}</TableCell>
-          <TableCell id={`to${i}`}>{destInPropriateCase(tr.to)}</TableCell>
-          <TableCell id={`roubles${i}`}>{tr.roubles}</TableCell>
+          <TableCell data-testid={`from${i}`}>{tr.from}</TableCell>
+          <TableCell data-testid={`to${i}`}>{destInPropriateCase(tr.to)}</TableCell>
+          <TableCell data-testid={`roubles${i}`}>{tr.roubles}</TableCell>
         </TableRow>
       )
     }

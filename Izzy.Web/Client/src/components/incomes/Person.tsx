@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Input from '@material-ui/core/Input';
+import Input from '@mui/material/Input';
 import './Person.css';
 
 export class Person extends Component<any, any> {
   render() {
     const {man} = this.props;
     return (
-      <div className="person">
+      <div className="person" data-testid="person">
         <Input
           className="person__input"
           placeholder={man.name} 
