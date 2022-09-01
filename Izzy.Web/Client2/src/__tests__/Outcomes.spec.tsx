@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import {render, RenderResult, screen, waitFor} from '@testing-library/react';
 import { Outcomes } from '../components/outcomes/Outcomes';
 
 describe('<Outcomes />', () => {
-    let component: ReactWrapper;
-
-    afterEach(() => {
-        component.unmount();
-    });
+    let component: RenderResult;
 
     it('"Я" should be transform to "Мне"', done => {
         // Arrange
@@ -16,11 +12,11 @@ describe('<Outcomes />', () => {
         ];
 
         // Act
-        component = mount(<Outcomes transfers={transfers}/>);
+        component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = component.find('#to1').hostNodes();
-        expect(toCell.text()).toEqual('Мне');
+        const toCell = screen.getByTestId('to1');
+        expect(toCell).toHaveTextContent('Мне');
         done();
     });
 
@@ -31,11 +27,11 @@ describe('<Outcomes />', () => {
         ];
 
         // Act
-        component = mount(<Outcomes transfers={transfers}/>);
+        component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = component.find('#to1').hostNodes();
-        expect(toCell.text()).toEqual('мне');
+        const toCell = screen.getByTestId('to1');
+        expect(toCell).toHaveTextContent('мне');
         done();
     });
 
@@ -46,11 +42,11 @@ describe('<Outcomes />', () => {
         ];
 
         // Act
-        component = mount(<Outcomes transfers={transfers}/>);
+        component = render(<Outcomes transfers={transfers}/>);
 
         // Assert
-        const toCell = component.find('#to1').hostNodes();
-        expect(toCell.text()).toEqual('Бобу');
+        const toCell = screen.getByTestId('#to1');
+        expect(toCell).toHaveTextContent('Бобу');
         done();
     });
 });

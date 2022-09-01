@@ -29,9 +29,9 @@ export class Transfers extends Component<any, any> {
     for (const tr of src) {
       inputs.push(
         <TableRow key={i++}>
-          <TableCell id={`from${i}`}>{tr.from}</TableCell>
-          <TableCell id={`to${i}`}>{destInPropriateCase(tr.to)}</TableCell>
-          <TableCell id={`roubles${i}`}>{tr.roubles}</TableCell>
+          <TableCell data-testid={`from${i}`}>{tr.from}</TableCell>
+          <TableCell data-testid={`to${i}`}>{destInPropriateCase(tr.to)}</TableCell>
+          <TableCell data-testid={`roubles${i}`}>{tr.roubles}</TableCell>
         </TableRow>
       )
     }
