@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import {render, RenderResult, screen} from '@testing-library/react';
+import {render, RenderResult, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import moxios from 'moxios';
 
@@ -36,51 +36,42 @@ describe('<Calculator />', () => {
   });
 
   afterEach(() => {
-    component.unmount();
+    moxios.uninstall()
   });
 
   it ('Add 1 person after click on Add button', async () => {
     // Arrange
-    const personsBefore = screen.queryByTestId('person')
-    expect(personsBefore).not.toBeInTheDocument()
+    expect(screen.queryByTestId('person')).toBeInTheDocument()
+    expect(screen.queryAllByTestId('person').length).toEqual(1)
 
     // Act
-    await user.click(screen.getByTestId('add'));
+    user.click(screen.getByTestId('add'));
 
     // Assert
-    const personsAfter = screen.getAllByTestId('person');
-    expect(personsAfter).toBeInTheDocument()
-    expect(personsAfter.length).toEqual(1);
+    await waitFor(() =>
+      expect(screen.queryAllByTestId('person').length).toEqual(2)
+    );
   });
 
-  // it ('one person in form by default', done => {
+  it ('one person in form by default', async () => {
+    expect(screen.queryByTestId('person')).toBeInTheDocument()
+    expect(screen.queryAllByTestId('person').length).toEqual(1)
+  });
+
+  it ('calc button is disabled, if there is one person in form', async () => {
+    expect(screen.queryByTestId("calc")).toBeDisabled()
+
+    user.click(screen.getByTestId("calc"))
+
+    await waitFor(() =>
+      expect(screen.queryAllByTestId('person').length).toEqual(1)
+    );
+  });
+
+  // it ('outcomes are displayed after clicking on \'Рассчитать\' button', (done) => {
   //   // Act
-  //   const personsCount = component.find('.person').length;
-  //
-  //   // Assert
-  //   expect(personsCount).toEqual(1);
-  //   done();
-  // });
-  //
-  // it ('calc button is disabled, if there is one person in form', done => {
-  //   // Arrange
-  //   const addButton = component.find('#calc').hostNodes();
-  //
-  //   // Act
-  //   addButton.simulate('click');
-  //   const personsAfter = component.find('.person').length
-  //
-  //   // Assert
-  //   expect(personsAfter).toEqual(1);
-  //   done();
-  // });
-  //
-  // it ('outcomes are displayed after clicking on \'Рассчитать\' button', done => {
-  //   // Act
-  //   const addButton = component.find('#add').hostNodes();
-  //   addButton.simulate('click');
-  //
-  //   console.log(123)
+  //   const addButton = screen.getByTestId('add');
+  //   user.click(addButton);
   //
   //   component.find('#persons_form')
   //     .children()
@@ -91,9 +82,7 @@ describe('<Calculator />', () => {
   //
   //   // Assert
   //   moxios.wait(() => {
-  //     component.update();
-  //     expect(component.find('#transfers').hostNodes().exists())
-  //         .toEqual(true);
+  //     expect(screen.queryByTestId('transfers')).toBeInTheDocument();
   //     done();
   //   }, 1000);
   // });

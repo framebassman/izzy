@@ -10,7 +10,7 @@ export class Incomes extends Component<any, any> {
   render() {
     const {calculate} = this.props;
     return (
-      <FormControl id="persons_form">
+      <FormControl id="persons_form" data-testid="persons_form">
         <h1>Замиокулькас</h1>
         <Formik
           initialValues={{ persons: [new RandomPerson()] }}
@@ -32,7 +32,7 @@ export class Incomes extends Component<any, any> {
                       Добавить
                     </Button>
                     {values.persons.map((person, index) => (
-                      <div key={index} className="person">
+                      <div key={index} className="person" data-testid="person">
                         <Field
                           name={`persons.${index}.name`}
                           render={({field, form}: FieldProps<any>) => (
@@ -75,6 +75,7 @@ export class Incomes extends Component<any, any> {
                     <Button
                       type="submit"
                       id="calc"
+                      data-testid="calc"
                       color="primary"
                       disabled={ values.persons.length > 1 ? false : true }
                     >
