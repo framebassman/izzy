@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+import React, { Component } from 'react';
 import Calculator from './components/Calculator';
 
 class App extends Component {

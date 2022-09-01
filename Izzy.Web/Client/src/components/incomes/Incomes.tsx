@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 import { Formik, Form, Field, FieldArray, FieldProps } from 'formik';
 import './Person.css';
 import { RandomPerson } from '../../store/model/RandomPerson';
@@ -10,7 +10,7 @@ export class Incomes extends Component<any, any> {
   render() {
     const {calculate} = this.props;
     return (
-      <FormControl id="persons_form">
+      <FormControl id="persons_form" data-testid="persons_form">
         <h1>Замиокулькас</h1>
         <Formik
           initialValues={{ persons: [new RandomPerson()] }}
@@ -26,13 +26,14 @@ export class Incomes extends Component<any, any> {
                   <div>
                     <Button
                       id="add"
+                      data-testid="add"
                       onClick={() => arrayHelpers.insert(values.persons.length, new RandomPerson())}
                     >
                       Добавить
                     </Button>
                     {values.persons.map((person, index) => (
-                      <div key={index} className="person">
-                        <Field 
+                      <div key={index} className="person" data-testid="person">
+                        <Field
                           name={`persons.${index}.name`}
                           render={({field, form}: FieldProps<any>) => (
                             <div className="person__input">
@@ -40,6 +41,7 @@ export class Incomes extends Component<any, any> {
                                 name={`persons.${index}.name`}
                                 placeholder={person.name}
                                 autoComplete="off"
+                                variant="standard"
                                 onChange={(event) => {
                                     field.onChange(event)
                                     form.setFieldValue(`persons.${index}.name`, event.target.value)
@@ -49,7 +51,7 @@ export class Incomes extends Component<any, any> {
                             </div>
                           )}
                         />
-                        <Field 
+                        <Field
                           name={`persons.${index}.roubles`}
                           render={({field, form}: FieldProps<any>) => (
                             <div className="person__input">
@@ -57,6 +59,7 @@ export class Incomes extends Component<any, any> {
                                 name={`persons.${index}.roubles`}
                                 placeholder={person.roubles.toString()}
                                 autoComplete="off"
+                                variant="standard"
                                 type="number"
                                 onChange={(event) => {
                                     field.onChange(event)
@@ -69,9 +72,10 @@ export class Incomes extends Component<any, any> {
                         />
                       </div>
                     ))}
-                    <Button 
+                    <Button
                       type="submit"
                       id="calc"
+                      data-testid="calc"
                       color="primary"
                       disabled={ values.persons.length > 1 ? false : true }
                     >
